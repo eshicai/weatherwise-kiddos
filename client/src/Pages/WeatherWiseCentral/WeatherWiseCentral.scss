@@ -1,0 +1,25 @@
+@use "../../styles/partials/global";
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.video-player {
+    display: flex;
+    flex-direction: column;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &-info {
+        padding: 1rem;
+
+        @include desktop {
+            display: flex;
+            flex-direction: row;
+            padding-left: 8rem;
+            padding-right: 8rem;
+        }
+    }
+}
