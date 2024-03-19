@@ -6,17 +6,17 @@ const router = express.Router();
 const JSON_FILE_PATH = './data/recommendations.json';
 
 const getRecommendations = () => {
-    const recommendationsJson = fs.readFileSync(JSON_FILE_PATH);
-    return JSON.parse(recommendationsJson);
+  const recommendationsJson = fs.readFileSync(JSON_FILE_PATH);
+  return JSON.parse(recommendationsJson);
 }
 
 router
-    .route('/')
-    .get((_req, res) => {
-        console.log('get recommendations...');
-        const recommendations = getRecommendations();
-        // console.log(recommendations);
-        res.status(200).json(recommendations);
-    })
+  .route('/')
+  .get((_req, res) => {
+    console.log('get recommendations...');
+    const recommendations = getRecommendations();
+    // console.log(recommendations);
+    res.status(200).json(recommendations);
+  })
 
 module.exports = router;

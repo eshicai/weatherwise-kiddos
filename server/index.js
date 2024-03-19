@@ -13,14 +13,14 @@ app.use(express.json());
 app.use(express.static('public'));
 
 app.use((req, _res, next) => {
-    console.log(`Incoming request: ${req.method} ${req.url}`);
+  console.log(`Incoming request: ${req.method} ${req.url}`);
 
-    next();
+  next();
 })
 
 app.use('/recommendations', recommendationsRoutes);
 app.use('/weather', weatherRoutes);
 
 app.listen(port, () => {
-    console.log(`Listening on ${port}`);
+  console.log(`Listening on ${port}`);
 })

@@ -5,151 +5,151 @@
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: "Avenir Next Regular";
-    color: $primary-color-black;
-    margin: 0;
+  font-family: "Avenir Next Regular";
+  color: $primary-color-black;
+  margin: 0;
 }
 
 h1 {
-    @include mobilePageHeader;
-    @include tablet {
-        @include tabletPageHeader;
-    }
+  @include mobilePageHeader;
+  @include tablet {
+    @include tabletPageHeader;
+  }
 }
 
 h2 {
-    @include mobileSectionHeader;
-    @include tablet {
-        @include tabletSectionHeader;
-    }
+  @include mobileSectionHeader;
+  @include tablet {
+    @include tabletSectionHeader;
+  }
 }
 
 h3 {
-    @include mobileSubheader;
-    @include tablet {
-        @include tabletSubheader;
-    }
+  @include mobileSubheader;
+  @include tablet {
+    @include tabletSubheader;
+  }
 }
 
 .logo {
-    max-height: 7.5rem; // 25px
-    max-width: 7.5rem; // 120px
+  max-height: 7.5rem; // 25px
+  max-width: 7.5rem; // 120px
 }
 
 button {
-    background-color: $primary-color-blue;
-    color: $primary-color-white;
-    border-radius: 0.25rem; // 4px
-    height: 2.5rem; // 40px
-    width: 100%;
-    border-color: transparent;
-    background-repeat: no-repeat;
-    background-position: 0.5rem center;
-    width: 100%;
-    font-weight: 600;
+  background-color: $primary-color-blue;
+  color: $primary-color-white;
+  border-radius: 0.25rem; // 4px
+  height: 2.5rem; // 40px
+  width: 100%;
+  border-color: transparent;
+  background-repeat: no-repeat;
+  background-position: 0.5rem center;
+  width: 100%;
+  font-weight: 600;
 
-    @include tablet {
-        min-width: 9.375rem; // 150px
-        padding-left: 2rem; // 32px
-        padding-right: 2rem; // 32px
-        width: auto;
-    }
+  @include tablet {
+    min-width: 9.375rem; // 150px
+    padding-left: 2rem; // 32px
+    padding-right: 2rem; // 32px
+    width: auto;
+  }
 
-    &:hover {
-        background-color: $secondary-color-darkblue;
-    }
+  &:hover {
+    background-color: $secondary-color-darkblue;
+  }
 }
 
 .video-icon {
-    color: $primary-color-white;
-    background-color: rgba($secondary-color-darkblack, 0.5);
+  color: $primary-color-white;
+  background-color: rgba($secondary-color-darkblack, 0.5);
 }
 
 .scrubbing-icon {
-    height: 1rem; // 16px
-    color: $primary-color-white;
-    background-color: rgba($secondary-color-darkblack, 0.5);
+  height: 1rem; // 16px
+  color: $primary-color-white;
+  background-color: rgba($secondary-color-darkblack, 0.5);
 }
 
 .scrubbing-buffer {
-    color: $primary-color-silver;
+  color: $primary-color-silver;
 }
 
 .scrubbing-played {
-    color: $primary-color-blue;
+  color: $primary-color-blue;
 }
 
 video {
-    background-color: $secondary-color-darkblack;
+  background-color: $secondary-color-darkblack;
 }
 
 label {
-    color: $primary-color-silver;
-    margin-bottom: 0.25; // 4px
+  color: $primary-color-silver;
+  margin-bottom: 0.25; // 4px
 }
 
 input,
 textarea {
-    min-height: 2.25rem; // 36px
-    min-width: 15rem; // 240px
-    max-width: 100%;
-    border-radius: 0.25rem; // 4px
-    padding: 0.75rem; // 12px
-    border: 0.063rem solid $secondary-color-mercury; // 1px
-    background-color: $secondary-color-alabaster;
-    height: 2.5rem; // 40px
-    resize: none;
-    overflow-y: hidden;
-    @include mobileBodyCopy;
+  min-height: 2.25rem; // 36px
+  min-width: 15rem; // 240px
+  max-width: 100%;
+  border-radius: 0.25rem; // 4px
+  padding: 0.75rem; // 12px
+  border: 0.063rem solid $secondary-color-mercury; // 1px
+  background-color: $secondary-color-alabaster;
+  height: 2.5rem; // 40px
+  resize: none;
+  overflow-y: hidden;
+  @include mobileBodyCopy;
 
-    @include tablet {
-        min-height: 2.5rem; // 40px
-        height: 2.5rem; // 40px
-        padding-left: 1rem;
-        padding-right: 1rem;
-        @include tabletBodyCopy;
-    }
+  @include tablet {
+    min-height: 2.5rem; // 40px
+    height: 2.5rem; // 40px
+    padding-left: 1rem;
+    padding-right: 1rem;
+    @include tabletBodyCopy;
+  }
 }
 
 input:focus,
 textarea:focus {
-    border: 0.125rem solid $primary-color-blue; // 2px
+  border: 0.125rem solid $primary-color-blue; // 2px
 }
 
 .validation-error {
-    border: 0.063rem solid $invalid-border-color; // 1px
+  border: 0.063rem solid $invalid-border-color; // 1px
 }
 
 .image {
-    border-radius: 0.25rem; // 4px
-    background-color: $secondary-color-mercury;
+  border-radius: 0.25rem; // 4px
+  background-color: $secondary-color-mercury;
 }
 
 .avatar {
-    border-radius: 50%;
-    background-color: $secondary-color-mercury;
-    width: 2.25rem; // 36px
-    height: 2.25rem; // 36px
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: cover;
+  border-radius: 50%;
+  background-color: $secondary-color-mercury;
+  width: 2.25rem; // 36px
+  height: 2.25rem; // 36px
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
 
-    @include tablet {
-        max-height: 2.5rem; // 40px
-        max-width: 2.5rem; // 40px
-    }
+  @include tablet {
+    max-height: 2.5rem; // 40px
+    max-width: 2.5rem; // 40px
+  }
 }
 
 .timestamp {
-    color: $primary-color-silver;
+  color: $primary-color-silver;
 }
 
 hr {
-    border: 0;
-    height: 1px;
-    border-bottom: 0.063rem solid $secondary-color-mercury;
+  border: 0;
+  height: 1px;
+  border-bottom: 0.063rem solid $secondary-color-mercury;
 }

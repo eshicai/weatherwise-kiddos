@@ -42,7 +42,7 @@ export const GetWeather = ({ latitude, longitude }) => {
   console.log(weather.clothing.image)
 
   return (
-    <div className='get-weather'>      
+    <div className='get-weather'>
       <p>City: {weather.city}</p>
       <p>Country: {weather.country}</p>
       <p>Temperature: {weather.temperature}</p>

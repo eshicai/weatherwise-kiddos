@@ -3,17 +3,17 @@ import { WeatherWiseCentral } from './Pages/WeatherWiseCentral/WeatherWiseCentra
 import { NotFound } from './Pages/NotFound/NotFound.js';
 
 function App() {
-    return (
-        <>
-            <BrowserRouter>
-                <Routes>
-                    <Route path='/' element={<WeatherWiseCentral />} />
+  return (
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<WeatherWiseCentral />} />
 
-                    <Route path='*' element={<NotFound />} />
-                </Routes>
-            </BrowserRouter>
-        </>
-    );
+          <Route path='*' element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </>
+  );
 }
 
 export default App;
