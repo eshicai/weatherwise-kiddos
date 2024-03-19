@@ -59,7 +59,6 @@ Parental Inconsistency: In situations where one parent typically handles dressin
 ### APIs
 
 - OpenWeatherMap API for weather data
-- Google Calendar API for holiday events
 
 ### Sitemap
 
