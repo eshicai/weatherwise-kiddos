@@ -275,7 +275,7 @@ Response:
 - JWT auth
     - Before adding auth, all API requests will be using a fake user with id 1
     - Added after core features have first been implemented
-    - Store JWT in localStorage, remove when a user logs out
+    - Store JWT in sessionStorage, remove when a user logs out
     - Add states for logged in showing different UI in places listed in mockups
 
 ## Roadmap
@@ -321,7 +321,7 @@ Response:
 
 - Feature: Implement JWT tokens
     - Server: Update expected requests / responses on protected endpoints
-    - Client: Store JWT in local storage, include JWT on axios calls
+    - Client: Store JWT in session storage, include JWT on axios calls
 
 - Bug fixes
 
