@@ -2,11 +2,13 @@ const express = require('express');
 const fs = require('fs');
 const crypto = require('crypto');
 const axios = require('axios');
+const process = require('process');
+require('dotenv').config();
 const router = express.Router();
 const { getClothingFromTemperature } = require('../services/getClothing');
 
-const weatherAPIEndpoint = 'https://api.openweathermap.org/data/2.5/weather';
-const { OPENWEATHER_API_KEY } = process.env;
+const baseURL = 'https://api.openweathermap.org/data/2.5/weather';
+const apiKey = process.env.OPENWEATHER_API_KEY;
 
 
 router
@@ -18,7 +20,8 @@ router
 
     const fetchWeather = async () => {
       try {
-        const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=7b1a938a38de8aa17f25b5c032bdedc7`);
+        const response = await axios.get(`${baseURL}?lat=${lat}&lon=${lon}&appid=${apiKey}`);
+        
         const weatherData = response.data;
         const currentTemp = Math.round(weatherData.main.temp - 273.15);
         const clothing = getClothingFromTemperature(currentTemp);
@@ -33,10 +36,10 @@ router
           "clothing": clothing,
         }
 
-        console.log(results);
+        //console.log(results);
         res.status(200).json(results);
       } catch (error) {
-        console.error('Error fetching weather data:', error);
+        //console.error('Error fetching weather data:', error);
         res.status(500).json({ error: 'Failed to fetch weather data' });
       }
     }
