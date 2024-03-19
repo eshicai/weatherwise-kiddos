@@ -31,7 +31,7 @@ Parental Inconsistency: In situations where one parent typically handles dressin
 - As a user, I want to receive tomorrow's weatehr information and temperature.
 - As a user, I want to receive tomorrow's clothing recommendations for kids based on my location and today's weather and temperature.
 - As a user, I want to receive tomorrow's recommendations on whether to prepare raincoat, rain boots, snow boots, sunscreen, hat or gloves based on the weather forecast.
-- As a user, I want to receive clothing recommendations for kids based on near future's holiday or event.
+- As a user, I want to receive clothing recommendations for kids based on near tomorrow's holiday or event.
 - As a user, I want to create an account to receive personalized recommendations based on my kid's age and gender.
 - As a user, I want to log in to my account to manage my kid's profiles.
 - As a logged in user, I want to provide feedback on the recommendations received, indicating if they were suitable for the weather (hot or cold).
@@ -73,7 +73,7 @@ Parental Inconsistency: In situations where one parent typically handles dressin
 #### Home Page
 ![](home.png)
 
-#### Future Page
+#### Tomorrow Page
 ![](tomorrow.png)
 
 #### Register Page
