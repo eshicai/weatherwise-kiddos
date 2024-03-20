@@ -9,6 +9,8 @@ function App() {
         <Routes>
           <Route path='/' element={<WeatherWiseCentral />} />
 
+          <Route path='/tomorrow' element={<WeatherWiseCentral />} />
+
           <Route path='*' element={<NotFound />} />
         </Routes>
       </BrowserRouter>

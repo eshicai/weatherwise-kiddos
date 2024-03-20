@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 export const GetWeather = ({ latitude, longitude }) => {
-  console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
   const baseUrl = process.env.REACT_APP_BASE_URL;
   const apiKey = process.env.REACT_APP_API_KEY;
 
@@ -14,13 +13,11 @@ export const GetWeather = ({ latitude, longitude }) => {
 
   const endpoint = `weather?lat=${latitude}&lon=${longitude}`;
   const weatherUrl = `${baseUrl}/${endpoint}&api_key=${apiKey}`;
-  console.log(weatherUrl);
 
   useEffect(() => {
     const fetchWeather = async () => {
       try {
         const response = await axios.get(weatherUrl);
-        console.log(response.data);
         setWeather(response.data);
         setIsLoading(false);
       } catch (error) {
@@ -39,22 +36,28 @@ export const GetWeather = ({ latitude, longitude }) => {
     return <p>Loading...</p>
   }
 
-  console.log(weather.clothing.image)
-
   return (
     <div className='get-weather'>
-      <p>City: {weather.city}</p>
-      <p>Country: {weather.country}</p>
-      <p>Temperature: {weather.temperature}</p>
-      <p>Feels Like: {weather.feelsLike}</p>
-      <p>{weather.mainWeather}</p>
-      <p>{weather.weatherDescription}</p>
-      <hr />
-      <p>Clothing:</p>
-      <p>Top:{weather.clothing.top}</p>
-      <p>Bottom:{weather.clothing.bottom}</p>
-      <p>Jacket:{weather.clothing.jacket}</p>
-      <img src={`${baseUrl}/${weather.clothing.image}`} alt='recommendation clothes'></img>
+      <div className='get-weather__details'>
+        <div className='get-weather__details-inner'>
+          <p className='get-weather__city'>City: {weather.city}</p>
+          <p className='get-weather__country'>Country: {weather.country}</p>
+          <p className='get-weather__temperature'>Temperature: {weather.temperature}</p>
+          <p className='get-weather__feels-like'>Feels Like: {weather.feelsLike}</p>
+          <p className='get-weather__main-weather'>{weather.mainWeather}</p>
+          <p className='get-weather__weather-description'>{weather.weatherDescription}</p>
+        </div>
+        <hr className='get-weather__hr' />
+        <div className='get-weather__clothing'>
+          <p className='get-weather__clothing-title'>Clothing:</p>
+          <p className='get-weather__clothing-top'>Top: {weather.clothing.top}</p>
+          <p className='get-weather__clothing-bottom'>Bottom: {weather.clothing.bottom}</p>
+          <p className='get-weather__clothing-jacket'>Jacket: {weather.clothing.jacket}</p>
+        </div>
+      </div>
+      <div className='get-weather__image-container'>
+        <img className='get-weather__clothing-image' src={`${baseUrl}/${weather.clothing.image}`} alt='recommendation clothes' />
+      </div>
     </div>
   )
 }

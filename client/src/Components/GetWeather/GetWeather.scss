@@ -1,0 +1,36 @@
+@use "../../styles/partials/global";
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+
+.get-weather {
+  padding: 1rem;
+
+  @include tablet {
+    padding: 2.25rem;
+  }
+
+  display: flex;
+  flex-direction: row;
+  gap: 2.25rem;
+
+  &__clothing-image {
+    max-width: 20rem;
+    max-height: 20rem;
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__details-inner {
+    border: solid #05445E 0.0625rem;
+    padding: 1rem;
+  }
+
+  &__clothing {
+    border: solid #189AB4 0.0625rem;
+    padding: 1rem;
+  }
+}

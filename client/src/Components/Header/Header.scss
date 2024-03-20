@@ -47,23 +47,6 @@
     }
   }
 
-  &__search {
-    margin-bottom: 1rem;
-    width: 100%;
-
-    &-input {
-      background-image: url(../../assets/icons/search.svg);
-      background-repeat: no-repeat;
-      background-position: 1rem center;
-      padding-left: 3rem;
-      width: 85%;
-    }
-  }
-
-  &__upload-button {
-    background-image: url(../../assets/icons/upload.svg);
-  }
-
   &__image-container {
     margin-left: -2.25rem;
     @include tablet {

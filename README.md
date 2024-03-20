@@ -328,8 +328,9 @@ Response:
 
 ## Nice-to-haves
 
-- Change recommendations after logged in user provide feedback with hot or cold
-- Record feedback with user id and recommendation id in database, provide proper recommendations next time
+- Change recommendations after logged in user provide feedback with hot or cold.
+- Record feedback with user id and recommendation id in database, provide proper recommendations next time.
+- Allow users to provide feedback on yesterday's recommendations and upate the database to provide proper ones next time.
 - Detailed clothing recommendations with each piece listed.
 - Personalized recommendations based on kid's preferences.
 - Allow users to set reminders for special events like pajama day or school holidays.

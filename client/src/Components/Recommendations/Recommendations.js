@@ -46,23 +46,9 @@ export const Recommendations = () => {
     return <p>No recommendations available</p>
   }
 
-  // const video = videos.find(video => video.id === id);
-  // if (id && !video) {
-  //     return <p>Unable to find this video. Please try a different video.</p>
-  // }
-
-  console.log(recommendations);
-  // recommendation = recommendations.find(recommendation => recommendation.id === id);
-
-
-
   return (
     <div className='recommendations'>
-      {/* <video className='main-video__displayed' poster={`${baseUrl}/${videoDetails.image}`} controls>
-                <source src={videoDetails.video}></source>
-            </video> */}
       <p>{recommendations.weather.cloudy.recommendation}</p>
-
     </div>
   )
 }

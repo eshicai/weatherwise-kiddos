@@ -1,6 +1,6 @@
 import './Header.scss';
 import logoImg from '../../assets/logo/weatherwisekiddos-logo.png'
-import userAvatar from '../../assets/images/Mohan-muruge.jpg'
+import userAvatar from '../../assets/images/headshort.png'
 import { Link } from 'react-router-dom';
 
 export const Header = () => {
@@ -11,14 +11,14 @@ export const Header = () => {
           <img className='header__logo logo' src={logoImg} alt='WeatherWise kiddos logo'></img>
         </Link>
       </div>
+      <div>
+        <h1>WeatherWise kiddos</h1>
+      </div>
       <div className='header__content'>
         <div className='header__group'>
-          <form className='header__search'>
-            <input className='header__search-input' type='search' placeholder='Search'></input>
-          </form>
-          <div className='header__upload-button-container'>
-            <Link to='/upload'>
-              <button className='header__upload-button'>UPLOAD</button>
+          <div className='header__button-container'>
+            <Link to='/tomorrow'>
+              <button className='header__button'>Tomorrow</button>
             </Link>
           </div>
         </div>

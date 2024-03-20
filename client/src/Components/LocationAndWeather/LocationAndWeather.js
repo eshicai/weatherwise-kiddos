@@ -20,7 +20,6 @@ export const LocationAndWeather = () => {
     setLatitude(position.coords.latitude);
     setLongitude(position.coords.longitude);
     setLocation({ latitude, longitude });
-    console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
   }
 
   const handleLocationError = (error) => {
@@ -28,10 +27,12 @@ export const LocationAndWeather = () => {
   }
 
   return (
-    <div>
-      <Clock />
-      {!location ? <button onClick={handleLocationClick}>Get Location</button> : null}
-      <GetWeather latitude={latitude} longitude={longitude} />
+    <div className='location'>
+      <div>
+        <Clock className='location__clock' />
+      </div>      
+      {!location ? <button className='location__button' onClick={handleLocationClick}>Get Location</button> : null}
+      <GetWeather className='location__weather' latitude={latitude} longitude={longitude} />
     </div>
   );
 }

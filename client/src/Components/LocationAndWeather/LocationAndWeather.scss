@@ -1,0 +1,21 @@
+@use "../../styles/partials/global";
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.location {
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  @include tablet {
+    padding-left: 2.25rem;
+    padding-right: 2.25rem;
+  }
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__button {
+    max-width: 5rem;
+  }
+}

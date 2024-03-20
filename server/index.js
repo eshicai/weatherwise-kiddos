@@ -3,6 +3,8 @@ const cors = require('cors');
 require('dotenv').config();
 const recommendationsRoutes = require('./routes/recommendations');
 const weatherRoutes = require('./routes/weather');
+const weatherSummaryRoutes = require('./routes/weatherSummary');
+const tomorrowRoutes = require('./routes/tomorrow');
 
 const app = express();
 const port = process.env.port || process.argv[2] || 8080;
@@ -20,6 +22,8 @@ app.use((req, _res, next) => {
 
 app.use('/recommendations', recommendationsRoutes);
 app.use('/weather', weatherRoutes);
+app.use('/weathersummary', weatherSummaryRoutes);
+app.use('/tomorrow', tomorrowRoutes);
 
 app.listen(port, () => {
   console.log(`Listening on ${port}`);
