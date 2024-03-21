@@ -42,8 +42,8 @@ export const GetWeather = ({ latitude, longitude }) => {
         <div className='get-weather__details-inner'>
           <p className='get-weather__city'>City: {weather.city}</p>
           <p className='get-weather__country'>Country: {weather.country}</p>
-          <p className='get-weather__temperature'>Temperature: {weather.temperature}</p>
-          <p className='get-weather__feels-like'>Feels Like: {weather.feelsLike}</p>
+          <p className='get-weather__temperature'>Temperature: {weather.temperature}°C</p>
+          <p className='get-weather__feels-like'>Feels Like: {weather.feelsLike}°C</p>
           <p className='get-weather__main-weather'>{weather.mainWeather}</p>
           <p className='get-weather__weather-description'>{weather.weatherDescription}</p>
         </div>

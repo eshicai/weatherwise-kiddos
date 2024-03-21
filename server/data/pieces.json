@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "temperature": 25,
+    "shoes": "sandals",
+    "hat": "sun hat",
+    "gloves": false,
+    "suncreen": true
+  },
+  {
+    "id": 2,
+    "temperature": 20,
+    "shoes": "sneakers",
+    "hat": "cap",
+    "gloves": false,
+    "suncreen": true
+  },
+  {
+    "id": 3,
+    "temperature": 15,
+    "shoes": "sneakers",
+    "hat": "none",
+    "gloves": false,
+    "suncreen": false
+  },
+  {
+    "id": 4,
+    "temperature": 10,
+    "shoes": "sneakers",
+    "hat": "none",
+    "gloves": false,
+    "suncreen": false
+  },
+  {
+    "id": 5,
+    "temperature": 5,
+    "shoes": "winter boots",
+    "hat": "none",
+    "gloves": false,
+    "suncreen": false
+  },
+  {
+    "id": 6,
+    "temperature": 0,
+    "shoes": "winter boots",
+    "hat": "none",
+    "gloves": true,
+    "suncreen": false
+  },
+  {
+    "id": 7,
+    "temperature": -5,
+    "shoes": "winter boots",
+    "hat": "none",
+    "gloves": true,
+    "suncreen": false
+  },
+  {
+    "id": 8,
+    "temperature": -10,
+    "shoes": "winter boots",
+    "hat": "none",
+    "gloves": true,
+    "suncreen": false
+  },
+  {
+    "id": 9,
+    "temperature": -15,
+    "shoes": "winter boots",
+    "hat": "none",
+    "gloves": true,
+    "suncreen": false
+  }
+]

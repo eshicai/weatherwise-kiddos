@@ -54,8 +54,12 @@ export const TomorrowWeather = () => {
         weatherSummary,
         descriptionSummary,
         weatherDescription,
-        clothing
+        clothing,
+        pieces
   } = tomorrow;
+
+  console.log(clothing);
+  console.log(pieces);
 
   return (
     <div className='tomorrow'>
@@ -63,9 +67,9 @@ export const TomorrowWeather = () => {
         <div className='tomorrow__details-inner'>
           <p className='tomorrow__city'>City: {city}</p>
           <p className='tomorrow__country'>Country: {country}</p>
-          <p className='tomorrow__temperature'>Temperature: {averageTemperature}</p>
-          <p className='tomorrow__temperature-range'>low {temperatureRange.min} - high {temperatureRange.max}</p>
-          <p className='tomorrow__feels-like'>Feels Like: low {feelsLikeRange.min} - high {feelsLikeRange.max}</p>
+          <p className='tomorrow__temperature'>Temperature: {averageTemperature}°C</p>
+          <p className='tomorrow__temperature-range'>low {temperatureRange.min}°C - high {temperatureRange.max}°C</p>
+          <p className='tomorrow__feels-like'>Feels Like: low {feelsLikeRange.min}°C - high {feelsLikeRange.max}°C</p>
           <p className='tomorrow__main-weather'>{weatherSummary.weatherMain}</p>
           <p className='tomorrow__description'>{descriptionSummary.weatherDescription}</p>
           <p className='tomorrow__description'>{weatherDescription}</p>
@@ -79,8 +83,13 @@ export const TomorrowWeather = () => {
           <p className='tomorrow__clothing-jacket'>Jacket: {clothing.jacket}</p>
         </div>
       </div>
-      <div className='tomorrow__image-container'>
-        <img className='tomorrow__clothing-image' src={`${baseUrl}/${clothing.image}`} alt='tomorrowd clothes' />
+      <div className='tomorrow__clothing-container'>
+        <img className='tomorrow__clothing-image' src={`${baseUrl}${clothing.image}`} alt='tomorrowd clothes' />
+      </div>
+      <div className='tomorrow__pieces-container'>
+        <img className='tomorrow__piece-image' src={`${baseUrl}${pieces.top}`} alt='top for tomorrow' />
+        <img className='tomorrow__piece-image' src={`${baseUrl}${pieces.bottom}`} alt='bottom for tomorrow' />
+        <img className='tomorrow__piece-image' src={`${baseUrl}${pieces.jacket}`} alt='jacket for tomorrow' />
       </div>
     </div>
   )

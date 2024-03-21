@@ -5,6 +5,7 @@ const process = require('process');
 require('dotenv').config();
 const router = express.Router();
 const { getClothingFromTemperature } = require('../services/getClothing');
+const { getPiecesFromTemperature } = require('../services/getPieces');
 
 const apiKey = process.env.OPENWEATHER_API_KEY;
 const baseURL = 'https://api.openweathermap.org/data/2.5';
@@ -109,6 +110,7 @@ router
       });
 
       const clothing = getClothingFromTemperature(averageTemperature);
+      const pieces = getPiecesFromTemperature(averageTemperature);
 
       // Send summarized weather data for tomorrow as response
       res.json({
@@ -122,7 +124,8 @@ router
         weatherSummary,
         descriptionSummary,
         weatherDescription: weatherDescriptionString,
-        "clothing": clothing
+        "clothing": clothing,
+        "pieces": pieces
       });
     } catch (error) {
       console.error('Error:', error.message);
