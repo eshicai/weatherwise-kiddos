@@ -122,7 +122,7 @@ router
         weatherSummary,
         descriptionSummary,
         weatherDescription: weatherDescriptionString,
-        "clothing": clothing,
+        "clothing": clothing
       });
     } catch (error) {
       console.error('Error:', error.message);

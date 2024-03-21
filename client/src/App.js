@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { WeatherWiseCentral } from './Pages/WeatherWiseCentral/WeatherWiseCentral.js';
+import { Tomorrow } from './Pages/Tomorrow/Tomorrow.js';
 import { NotFound } from './Pages/NotFound/NotFound.js';
 
 function App() {
@@ -9,7 +10,7 @@ function App() {
         <Routes>
           <Route path='/' element={<WeatherWiseCentral />} />
 
-          <Route path='/tomorrow' element={<WeatherWiseCentral />} />
+          <Route path='/tomorrow' element={<Tomorrow />} />
 
           <Route path='*' element={<NotFound />} />
         </Routes>

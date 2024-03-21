@@ -17,8 +17,8 @@ export const Header = () => {
       <div className='header__content'>
         <div className='header__group'>
           <div className='header__button-container'>
-            <Link to='/tomorrow'>
-              <button className='header__button'>Tomorrow</button>
+            <Link to='/login'>
+              <button className='header__button'>Login</button>
             </Link>
           </div>
         </div>
