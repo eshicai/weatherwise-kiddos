@@ -45,19 +45,21 @@ export const TomorrowWeather = () => {
   }
 
   const {
-        city,
-        country,
-        averageTemperature,
-        temperatureRange,
-        feelsLikeRange,
-        rain,
-        snow,
-        weatherSummary,
-        descriptionSummary,
-        weatherDescription,
-        clothing,
-        pieces,
-        essentials
+    city,
+    country,
+    averageTemperature,
+    temperatureRange,
+    feelsLikeRange,
+    rain,
+    snow,
+    weatherSummary,
+    descriptionSummary,
+    weatherDescription,
+    clothing,
+    pieces,
+    accessories,
+    essentials,
+    specials
   } = tomorrow;
 
   console.log(clothing);
@@ -86,7 +88,7 @@ export const TomorrowWeather = () => {
           <p className='tomorrow__clothing-top'>Top: {clothing.top}</p>
           <p className='tomorrow__clothing-bottom'>Bottom: {clothing.bottom}</p>
           <p className='tomorrow__clothing-jacket'>Jacket: {clothing.jacket}</p>
-          <p className='tomorrow__clothing-jacket'>Shoes: {clothing.footwear}</p>
+          <p className='tomorrow__clothing-footwear'>Shoes: {clothing.footwear}</p>
         </div>
       </div>
       <div className='tomorrow__clothing-container'>
@@ -97,12 +99,22 @@ export const TomorrowWeather = () => {
         <img className='tomorrow__piece-image' src={`${baseUrl}${pieces.bottom}/${day}.png`} alt='bottom for tomorrow' />
         <img className='tomorrow__piece-image' src={`${baseUrl}${pieces.jacket}/${day}.png`} alt='jacket for tomorrow' />
       </div>
+      {accessories &&
+        (<div className='tomorrow__accessories-container'>
+          <p><p className='tomorrow__accessories-title'>Don't forget bring:</p></p>
+          <p><p className='tomorrow__accessories'>{accessories.accessories}</p></p>
+        </div>)}
       <div className='tomorrow__essentials'>
-        <p><p className='tomorrow__clothing-jacket'>Pack your little one with:</p></p>
-        <p><p className='tomorrow__clothing-jacket'>{essentials.jacket}</p></p>
-        <p><p className='tomorrow__clothing-jacket'>{essentials.pants}</p></p>
-        <p><p className='tomorrow__clothing-jacket'>{essentials.footware}</p></p>
+        <p><p className='tomorrow__essentials-title'>Pack your little one with:</p></p>
+        <p><p className='tomorrow__essentials-jacket'>{essentials.jacket}</p></p>
+        <p><p className='tomorrow__essentials-pants'>{essentials.pants}</p></p>
+        <p><p className='tomorrow__essentials-footwear'>{essentials.footware}</p></p>
       </div>
+      {specials &&
+        (<div className='tomorrow__specials-container'>
+          <p><p className='tomorrow__specials-title'></p>{specials.event}</p>
+          <p><p className='tomorrow__specials'>{specials.color}</p></p>
+        </div>)}
     </div>
   )
 }
