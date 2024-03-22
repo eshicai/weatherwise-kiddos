@@ -14,6 +14,7 @@ router
   .route('/')
   .get(async (req, res) => {
     try {
+      // Extracting latitude and longitude from query parameters
       const { lat, lon } = req.query;
       const endpoint = `/forecast/?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
       const response = await axios.get(`${baseURL}${endpoint}`);
@@ -23,22 +24,23 @@ router
       tomorrow.setDate(tomorrow.getDate() + 1);
       const tomorrowDate = tomorrow.toISOString().split('T')[0]; // Format date as 'YYYY-MM-DD'
 
-      // Extract relevant weather data for tomorrow between 8am and 5pm
       const forecasts = response.data.list;
-      let temperatureRange = { min: Infinity, max: -Infinity }; // Initialize temperature range
-      let feelsLikeRange = { min: Infinity, max: -Infinity }; // Initialize feelsLike range
-      let sumTemperature = 0; // Initialize sum of temperatures
-      let countTemperature = 0; // Initialize count of temperature data points
-      let rain = false; // Initialize rain flag
-      let snow = false; // Initialize snow flag
-      const city = response.data.city.name; // Extract city name
-      const country = response.data.city.country; // Extract country code
-      let weatherSummary = {}; // Initialize object to summarize occurrences of different weather conditions
-      let descriptionSummary = {}; // Initialize object to summarize occurrences of different weather descriptions
+      const city = response.data.city.name;
+      const country = response.data.city.country;
 
+      let temperatureRange = { min: Infinity, max: -Infinity };
+      let feelsLikeRange = { min: Infinity, max: -Infinity };
+      let sumTemperature = 0;
+      let countTemperature = 0;
+      let weatherSummary = {};
+      let descriptionSummary = {};
+      let rain = false;
+      let snow = false;
+
+      // Looping through forecast data
       for (const forecast of forecasts) {
-        const forecastTime = new Date(forecast.dt_txt); // Convert forecast time to Date object
-        const forecastDate = forecastTime.toISOString().split('T')[0]; // Extract forecast date
+        const forecastTime = new Date(forecast.dt_txt);
+        const forecastDate = forecastTime.toISOString().split('T')[0];
 
         // Check if forecast is for tomorrow and between 8am and 5pm
         if (forecastDate === tomorrowDate && forecastTime.getHours() >= 8 && forecastTime.getHours() <= 17) {
@@ -109,6 +111,7 @@ router
         weatherDescriptionString += ` ${description}`;
       });
 
+      // Retrieving clothing, pieces, and essentials data based on weather conditions
       const clothing = getClothingFromTemperature(averageTemperature);
       const piece = getPiecesFromTemperature(averageTemperature);
       const essential = getEssentials(rain, snow);
@@ -125,13 +128,13 @@ router
         weatherSummary,
         descriptionSummary,
         weatherDescription: weatherDescriptionString,
-        "clothing": clothing,
+        clothing,
         "pieces": piece,
         "essentials": essential
       });
     } catch (error) {
-      console.error('Error:', error.message);
-      res.status(500).send('Internal Server Error');
+      console.error('Error fetching forecast data:', error);
+      res.status(500).send('Failed to fetch forecast data');
     }
   });
 
