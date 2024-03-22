@@ -1,8 +1,8 @@
 import './WeatherWiseCentral.scss'
 import { Link } from 'react-router-dom';
-import { Header } from '../../Components/Header/Header';
-import { LocationAndWeather } from '../../Components/LocationAndWeather/LocationAndWeather';
-import { Slogan } from '../../Components/Slogan/Slogan';
+import { Header } from '../../components/Header/Header';
+import { LocationAndWeather } from '../../components/LocationAndWeather/LocationAndWeather';
+import { Slogan } from '../../components/Slogan/Slogan';
 
 export const WeatherWiseCentral = () => {
   return (

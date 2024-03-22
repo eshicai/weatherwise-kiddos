@@ -1,6 +1,7 @@
 import './TomorrowWeather.scss'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { getDayNumberInWeek } from '../../utils/date';
 
 export const TomorrowWeather = () => {
   const baseUrl = process.env.REACT_APP_BASE_URL;
@@ -61,6 +62,8 @@ export const TomorrowWeather = () => {
   console.log(clothing);
   console.log(pieces);
 
+  const day = getDayNumberInWeek(1);
+
   return (
     <div className='tomorrow'>
       <div className='tomorrow__details'>
@@ -87,9 +90,9 @@ export const TomorrowWeather = () => {
         <img className='tomorrow__clothing-image' src={`${baseUrl}${clothing.image}`} alt='tomorrowd clothes' />
       </div>
       <div className='tomorrow__pieces-container'>
-        <img className='tomorrow__piece-image' src={`${baseUrl}${pieces.top}/1.png`} alt='top for tomorrow' />
-        <img className='tomorrow__piece-image' src={`${baseUrl}${pieces.bottom}`} alt='bottom for tomorrow' />
-        <img className='tomorrow__piece-image' src={`${baseUrl}${pieces.jacket}`} alt='jacket for tomorrow' />
+        <img className='tomorrow__piece-image' src={`${baseUrl}${pieces.top}/${day}.png`} alt='top for tomorrow' />
+        <img className='tomorrow__piece-image' src={`${baseUrl}${pieces.bottom}/${day}.png`} alt='bottom for tomorrow' />
+        <img className='tomorrow__piece-image' src={`${baseUrl}${pieces.jacket}/${day}.png`} alt='jacket for tomorrow' />
       </div>
     </div>
   )

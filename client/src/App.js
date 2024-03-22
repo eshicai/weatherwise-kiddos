@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { WeatherWiseCentral } from './Pages/WeatherWiseCentral/WeatherWiseCentral.js';
-import { Tomorrow } from './Pages/Tomorrow/Tomorrow.js';
-import { NotFound } from './Pages/NotFound/NotFound.js';
+import { WeatherWiseCentral } from './pages/WeatherWiseCentral/WeatherWiseCentral.js';
+import { Tomorrow } from './pages/Tomorrow/Tomorrow.js';
+import { NotFound } from './pages/NotFound/NotFound.js';
 
 function App() {
   return (
