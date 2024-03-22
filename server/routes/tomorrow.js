@@ -6,6 +6,8 @@ const router = express.Router();
 const { getClothingFromTemperature } = require('../services/getClothing');
 const { getPiecesFromTemperature } = require('../services/getPieces');
 const { getEssentials } = require('../services/getEssentials');
+const { getAccessoriesFromTemperature } = require('../services/getAccessories');
+const { getSpecials } = require('../services/getSpecials');
 
 const apiKey = process.env.OPENWEATHER_API_KEY;
 const baseURL = 'https://api.openweathermap.org/data/2.5';
@@ -113,8 +115,9 @@ router
 
       // Retrieving clothing, pieces, essentials and specials data based on weather conditions or date
       const clothing = getClothingFromTemperature(averageTemperature);
-      const piece = getPiecesFromTemperature(averageTemperature);
-      const essential = getEssentials(rain, snow);      
+      const pieces = getPiecesFromTemperature(averageTemperature);
+      const essentials = getEssentials(rain, snow);
+      const accessories = getAccessoriesFromTemperature(averageTemperature);
       const specialEventTomorrow = getSpecials(tomorrow);
 
       // Send summarized weather data for tomorrow as response
@@ -130,8 +133,9 @@ router
         descriptionSummary,
         weatherDescription: weatherDescriptionString,
         clothing,
-        "pieces": piece,
-        "essentials": essential,
+        pieces,
+        essentials,
+        accessories,
         "specials": specialEventTomorrow
       });
     } catch (error) {
