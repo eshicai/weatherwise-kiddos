@@ -56,7 +56,8 @@ export const TomorrowWeather = () => {
         descriptionSummary,
         weatherDescription,
         clothing,
-        pieces
+        pieces,
+        essentials
   } = tomorrow;
 
   console.log(clothing);
@@ -81,9 +82,11 @@ export const TomorrowWeather = () => {
         </div>
         <div className='tomorrow__clothing'>
           <p className='tomorrow__clothing-title'>Clothing:</p>
+          <p className='tomorrow__clothing-top'>{clothing.description}</p>
           <p className='tomorrow__clothing-top'>Top: {clothing.top}</p>
           <p className='tomorrow__clothing-bottom'>Bottom: {clothing.bottom}</p>
           <p className='tomorrow__clothing-jacket'>Jacket: {clothing.jacket}</p>
+          <p className='tomorrow__clothing-jacket'>Shoes: {clothing.footwear}</p>
         </div>
       </div>
       <div className='tomorrow__clothing-container'>
@@ -93,6 +96,12 @@ export const TomorrowWeather = () => {
         <img className='tomorrow__piece-image' src={`${baseUrl}${pieces.top}/${day}.png`} alt='top for tomorrow' />
         <img className='tomorrow__piece-image' src={`${baseUrl}${pieces.bottom}/${day}.png`} alt='bottom for tomorrow' />
         <img className='tomorrow__piece-image' src={`${baseUrl}${pieces.jacket}/${day}.png`} alt='jacket for tomorrow' />
+      </div>
+      <div className='tomorrow__essentials'>
+        <p><p className='tomorrow__clothing-jacket'>Pack your little one with:</p></p>
+        <p><p className='tomorrow__clothing-jacket'>{essentials.jacket}</p></p>
+        <p><p className='tomorrow__clothing-jacket'>{essentials.pants}</p></p>
+        <p><p className='tomorrow__clothing-jacket'>{essentials.footware}</p></p>
       </div>
     </div>
   )

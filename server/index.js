@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
-const recommendationsRoutes = require('./routes/recommendations');
+
 const weatherRoutes = require('./routes/weather');
 const weatherSummaryRoutes = require('./routes/weatherSummary');
 const tomorrowRoutes = require('./routes/tomorrow');
@@ -20,7 +20,6 @@ app.use((req, _res, next) => {
   next();
 })
 
-app.use('/recommendations', recommendationsRoutes);
 app.use('/weather', weatherRoutes);
 app.use('/weathersummary', weatherSummaryRoutes);
 app.use('/tomorrow', tomorrowRoutes);
