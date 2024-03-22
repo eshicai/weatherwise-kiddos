@@ -334,6 +334,7 @@ Response:
 - Detailed clothing recommendations with each piece listed.
 - Personalized recommendations based on kid's preferences.
 - Allow users to set reminders for special events like pajama day or school holidays.
+- Allow users to upload avatar.
 - Reminders for upcoming holidays or events.
 - Shopping reminders with links.
 - Birthday or family celebration event reminders.

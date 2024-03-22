@@ -111,10 +111,11 @@ router
         weatherDescriptionString += ` ${description}`;
       });
 
-      // Retrieving clothing, pieces, and essentials data based on weather conditions
+      // Retrieving clothing, pieces, essentials and specials data based on weather conditions or date
       const clothing = getClothingFromTemperature(averageTemperature);
       const piece = getPiecesFromTemperature(averageTemperature);
-      const essential = getEssentials(rain, snow);
+      const essential = getEssentials(rain, snow);      
+      const specialEventTomorrow = getSpecials(tomorrow);
 
       // Send summarized weather data for tomorrow as response
       res.json({
@@ -130,7 +131,8 @@ router
         weatherDescription: weatherDescriptionString,
         clothing,
         "pieces": piece,
-        "essentials": essential
+        "essentials": essential,
+        "specials": specialEventTomorrow
       });
     } catch (error) {
       console.error('Error fetching forecast data:', error);
