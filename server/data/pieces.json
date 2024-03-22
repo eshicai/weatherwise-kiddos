@@ -1,74 +1,114 @@
 [
   {
     "id": 1,
-    "temperature": 25,
-    "shoes": "sandals",
-    "hat": "sun hat",
-    "gloves": false,
-    "suncreen": true
+    "temperature": 27,
+    "top": "/clothes/girl/",
+    "bottom": "/clothes/girl/",
+    "jacket": "/clothes/girl/"
   },
   {
     "id": 2,
-    "temperature": 20,
-    "shoes": "sneakers",
-    "hat": "cap",
-    "gloves": false,
-    "suncreen": true
+    "temperature": 24,
+    "top": "/clothes/girl/",
+    "bottom": "/clothes/girl/",
+    "jacket": "/clothes/girl/"
   },
   {
     "id": 3,
-    "temperature": 15,
-    "shoes": "sneakers",
-    "hat": "none",
-    "gloves": false,
-    "suncreen": false
+    "temperature": 21,
+    "top": "/clothes/girl/",
+    "bottom": "/clothes/girl/",
+    "jacket": "/clothes/girl/"
   },
   {
     "id": 4,
-    "temperature": 10,
-    "shoes": "sneakers",
-    "hat": "none",
-    "gloves": false,
-    "suncreen": false
+    "temperature": 18,
+    "top": "/clothes/girl/",
+    "bottom": "/clothes/girl/",
+    "jacket": "/clothes/girl/"
   },
   {
     "id": 5,
-    "temperature": 5,
-    "shoes": "winter boots",
-    "hat": "none",
-    "gloves": false,
-    "suncreen": false
+    "temperature": 16,
+    "top": "/clothes/girl/",
+    "bottom": "/clothes/girl/",
+    "jacket": "/clothes/girl/"
   },
   {
     "id": 6,
-    "temperature": 0,
-    "shoes": "winter boots",
-    "hat": "none",
-    "gloves": true,
-    "suncreen": false
+    "temperature": 13,
+    "top": "/clothes/girl/",
+    "bottom": "/clothes/girl/",
+    "jacket": "/clothes/girl/"
   },
   {
     "id": 7,
-    "temperature": -5,
-    "shoes": "winter boots",
-    "hat": "none",
-    "gloves": true,
-    "suncreen": false
+    "temperature": 10,
+    "top": "/clothes/girl/sweatshirt",
+    "bottom": "/clothes/girl/pants",
+    "jacket": "/clothes/girl/jacketfleece"
   },
   {
     "id": 8,
-    "temperature": -10,
-    "shoes": "winter boots",
-    "hat": "none",
-    "gloves": true,
-    "suncreen": false
+    "temperature": 8,
+    "top": "/clothes/girl/sweatshirt",
+    "bottom": "/clothes/girl/pants",
+    "jacket": "/clothes/girl/jacketfleece"
   },
   {
     "id": 9,
+    "temperature": 6,
+    "top": "/clothes/girl/sweatshirt",
+    "bottom": "/clothes/girl/pants",
+    "jacket": "/clothes/girl/jacketfleece"
+  },
+  {
+    "id": 10,
+    "temperature": 4,
+    "top": "/clothes/girl/",
+    "bottom": "/clothes/girl/",
+    "jacket": "/clothes/girl/"
+  },
+  {
+    "id": 11,
+    "temperature": 2,
+    "top": "/clothes/girl/",
+    "bottom": "/clothes/girl/",
+    "jacket": "/clothes/girl/"
+  },
+  {
+    "id": 12,
+    "temperature": 0,
+    "top": "/clothes/girl/",
+    "bottom": "/clothes/girl/",
+    "jacket": "/clothes/girl/"
+  },
+  {
+    "id": 13,
+    "temperature": -2,
+    "top": "/clothes/girl/",
+    "bottom": "/clothes/girl/",
+    "jacket": "/clothes/girl/"
+  },
+  {
+    "id": 14,
+    "temperature": -5,
+    "top": "/clothes/girl/",
+    "bottom": "/clothes/girl/",
+    "jacket": "/clothes/girl/"
+  },
+  {
+    "id": 15,
+    "temperature": -10,
+    "top": "/clothes/girl/",
+    "bottom": "/clothes/girl/",
+    "jacket": "/clothes/girl/"
+  },
+  {
+    "id": 16,
     "temperature": -15,
-    "shoes": "winter boots",
-    "hat": "none",
-    "gloves": true,
-    "suncreen": false
+    "top": "/clothes/girl/",
+    "bottom": "/clothes/girl/",
+    "jacket": "/clothes/girl/"
   }
 ]

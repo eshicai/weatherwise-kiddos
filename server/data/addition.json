@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "condition": "rain",    
+    "jacket": "Waterproof Rain Coat",
+    "pants": "Waterproof Rain pants or muddy buddy",
+    "footware": "Rain boots"
+  },
+  {
+    "id": 2,
+    "condition": "snow",    
+    "jacket": "Water resistant snow jacket",
+    "pants": "Snow pants",
+    "footware": "Insulated winter boots"
+  }  
+]

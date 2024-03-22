@@ -87,7 +87,7 @@ export const TomorrowWeather = () => {
         <img className='tomorrow__clothing-image' src={`${baseUrl}${clothing.image}`} alt='tomorrowd clothes' />
       </div>
       <div className='tomorrow__pieces-container'>
-        <img className='tomorrow__piece-image' src={`${baseUrl}${pieces.top}`} alt='top for tomorrow' />
+        <img className='tomorrow__piece-image' src={`${baseUrl}${pieces.top}/1.png`} alt='top for tomorrow' />
         <img className='tomorrow__piece-image' src={`${baseUrl}${pieces.bottom}`} alt='bottom for tomorrow' />
         <img className='tomorrow__piece-image' src={`${baseUrl}${pieces.jacket}`} alt='jacket for tomorrow' />
       </div>
