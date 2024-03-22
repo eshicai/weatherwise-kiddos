@@ -67,3 +67,10 @@
     @content;
   }
 }
+
+@mixin backArrowStyle() {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 1rem;
+  background: url("../../assets/icons/arrow_back-24px.svg");
+}
