@@ -1,5 +1,5 @@
 import './LocationAndWeather.scss'
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { GetWeather } from '../GetWeather/GetWeather';
 import { Clock } from '../Clock/Clock';
 import { Location } from '../../pages/Location/Location';
@@ -21,23 +21,26 @@ export const LocationAndWeather = () => {
   const [timezoneOffset, setTimezoneOffset] = useState(storedTimezoneOffset || defaultTimezoneOffset);
   const [showButton, setShowButton] = useState(buttonClicked !== 'true');
   const [buttonConfirm, setButtonConfirm] = useState(false);
-
-  const message = 'Click the button below to enable personalized weather forecasts based on your current location';
+  const [getLocation, setGetLocation] = useState(false);
 
   const handleLocationClick = () => {
     setButtonConfirm(true);
-
-    // if (navigator.geolocation) {
-    //   navigator.geolocation.getCurrentPosition(fetchWeatherData, handleLocationError);
-    // } else {
-    //   console.log("Geolocation not supported");
-    // }
-
-    // const timezoneOffset = (new Date()).getTimezoneOffset();
-    // console.log(timezoneOffset);
-    // setTimezoneOffset(timezoneOffset);
-    // sessionStorage.setItem('timezoneOffset', timezoneOffset);
   }
+
+  const getGeoLocation = () => {
+    console.log('getting location!!');
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(fetchWeatherData, handleLocationError);
+    } else {
+      console.log("Geolocation not supported");
+    }
+
+    const timezoneOffset = (new Date()).getTimezoneOffset();
+    console.log(timezoneOffset);
+    setTimezoneOffset(timezoneOffset);
+    sessionStorage.setItem('timezoneOffset', timezoneOffset);
+  }
+
 
   const fetchWeatherData = (position) => {
     setLatitude(position.coords.latitude);
@@ -54,20 +57,28 @@ export const LocationAndWeather = () => {
     console.error('Error getting user location:', error.message);
   }
 
+  useEffect(() => {
+    if (getLocation) {
+      getGeoLocation();
+
+      setGetLocation(false);
+    }
+  }, ([getLocation], [getGeoLocation]));
+
   return (
     <div className='location'>
       <div>
         <Clock className='location__clock' />
       </div>
-      {/* {showButton && !location ? (
-        <div> */}
+      {showButton && !location ? (
+        <div>
           <button className='location__button' onClick={handleLocationClick}>Get My Location</button>
-          {/* <p className='location__button-explaination'>Click the button above to enable personalized weather forecasts based on your current location</p>
+          <p className='location__button-explaination'>Click the button above to enable personalized weather forecasts based on your current location</p>
         </div>
-      ) : null} */}
-      {buttonConfirm && <Location setButtonConfirm={setButtonConfirm} message={message}/>}
+      ) : null}
+      {buttonConfirm && <Location setButtonConfirm={setButtonConfirm} setGetLocation={setGetLocation} />}
 
-      <GetWeather className='location__weather' latitude={latitude} longitude={longitude} timezoneOffset={timezoneOffset} />      
+      <GetWeather className='location__weather' latitude={latitude} longitude={longitude} timezoneOffset={timezoneOffset} />
     </div>
   );
 }
