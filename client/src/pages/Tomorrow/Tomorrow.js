@@ -9,12 +9,8 @@ export const Tomorrow = () => {
     <div className="tomorrow-page">
       <Header />
       <main className='main'>
-        {/* <Link to='/'>Today</Link> */}
         <div className="tomorrow-page__heading-container">
-          <HeadingWithBackArrow
-            link="/"
-            heading="Today"
-          />
+          <HeadingWithBackArrow link="/" heading="Today" />
         </div>
         <TomorrowWeather />
         <Slogan />

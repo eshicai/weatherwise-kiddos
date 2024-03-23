@@ -1,6 +1,6 @@
 import './LocationAndWeather.scss'
 import React, { useEffect, useState } from 'react';
-import { GetWeather } from '../GetWeather/GetWeather';
+import { TodayWeather } from '../TodayWeather/TodayWeather';
 import { Clock } from '../Clock/Clock';
 import { Location } from '../../pages/Location/Location';
 
@@ -78,7 +78,7 @@ export const LocationAndWeather = () => {
       ) : null}
       {buttonConfirm && <Location setButtonConfirm={setButtonConfirm} setGetLocation={setGetLocation} />}
 
-      <GetWeather className='location__weather' latitude={latitude} longitude={longitude} timezoneOffset={timezoneOffset} />
+      <TodayWeather className='location__weather' latitude={latitude} longitude={longitude} timezoneOffset={timezoneOffset} />
     </div>
   );
 }

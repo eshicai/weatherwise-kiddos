@@ -3,7 +3,7 @@
 @use "../../styles/partials/mixins" as *;
 
 
-.get-weather {
+.today {
   padding: 1rem;
 
   @include tablet {

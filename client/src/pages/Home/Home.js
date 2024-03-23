@@ -1,10 +1,10 @@
-import './WeatherWiseCentral.scss'
+import './Home.scss'
 import { Link } from 'react-router-dom';
 import { Header } from '../../components/Header/Header';
 import { LocationAndWeather } from '../../components/LocationAndWeather/LocationAndWeather';
 import { Slogan } from '../../components/Slogan/Slogan';
 
-export const WeatherWiseCentral = () => {
+export const Home = () => {
   return (
     <div className="home-page">
       <Header />

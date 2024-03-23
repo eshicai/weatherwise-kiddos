@@ -2,26 +2,10 @@ import './Location.scss'
 import closeX from "../../assets/icons/close-24px.svg";
 
 export const Location = ({ setButtonConfirm, setGetLocation }) => {
-  //console.log(message);
-
   const handleLocationClick = () => {
-    
-
-    // if (navigator.geolocation) {
-    //   navigator.geolocation.getCurrentPosition(fetchWeatherData, handleLocationError);
-    // } else {
-    //   console.log("Geolocation not supported");
-    // }
-
-    // const timezoneOffset = (new Date()).getTimezoneOffset();
-    // console.log(timezoneOffset);
-    // setTimezoneOffset(timezoneOffset);
-    // sessionStorage.setItem('timezoneOffset', timezoneOffset);
     setGetLocation(true);
     setButtonConfirm(false);
   }
-
-  const message = 'Click the Confirm button below to enable personalized weather forecasts based on your current location';
 
   return (
     <div className="popup">
@@ -41,7 +25,7 @@ export const Location = ({ setButtonConfirm, setGetLocation }) => {
               <h1 className="popup__title">Get My Location</h1>
             </div>
             <div className="popup__body-container">
-              <p className="popup__body">{message}</p>
+              <p className="popup__body">Click the Confirm button below to enable personalized weather forecasts based on your current location</p>
             </div>
           </div>
           <div className="popup__footer">
