@@ -1,0 +1,187 @@
+@use "../../styles/partials/global";
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.popup {
+  width: 100vw;
+  z-index: 3;
+  position: fixed;
+  height: 100vh;
+  left: 50%;
+  top: 0%;
+  transform: translate(-50%, 0);
+  display: flex;
+
+  @include tablet {
+    z-index: 3;
+    // width: 100vw;
+    // height: 100vh;
+    background-color: rgba(35, 41, 64, 0.8);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__container {
+    width: 100%;
+    height: 100%; // Limit max-height to avoid overflow
+    max-height: 100vh;
+
+    background-color: $primary-color-white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    flex-direction: column;
+    
+
+    padding: 1rem;
+
+    @include tablet {
+      border-radius: 0.25rem;
+      width: 40.5rem;
+      height: 17rem;
+      position: fixed;
+      top: 25%;
+      padding: 1rem;
+    }
+
+    @include desktop {
+      width: 44rem;
+      top: 12%;
+      padding: 1rem;
+    }
+  }
+
+  &__wrapper{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+
+    @include tablet(){
+      padding: 0 2rem;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    margin: 1.25rem 0;
+    text-align: left;
+    // margin-left: 1rem;
+    // margin-bottom: 0;
+    // margin-top: 2rem;
+
+    @include tablet {
+      margin-top: 0;
+      // margin-left: 3rem;
+    }
+  }
+
+  &__body {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.7rem;
+    text-align: center;
+    // margin-left: 1rem;;
+    text-align: left;
+
+    @include tablet {
+      // margin-top: 1rem;
+      // margin-left: 3rem;
+      // margin-right: 3rem;
+      // margin-right: 6rem;
+      // padding: 1rem;
+    }
+
+    @include desktop(){
+      width: 90%;
+    }
+  }
+
+  &__top-btn-container{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    // padding: 0 1rem;
+    // padding-top: 1rem;
+
+  }
+  &__closeBtn {
+    display: flex;
+    width: 2rem;
+    height: 2rem;
+    // justify-content: flex-end;
+    // align-items: flex-end;
+    background: none;
+    // @include desktop-tablet-font-h3;
+    // font-size: 1.5rem;
+
+    @include tablet {
+      // position: relative;
+      // left: 92%;
+    }
+  }
+
+  &__closeIcon{
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+
+  &__footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 0.5rem;
+    // margin-right: 1rem;
+
+    // position: fixed;
+    // bottom: 4%;
+    width: 100%;
+
+    @include tablet {
+      // position: relative;
+      justify-content: flex-end
+    }
+
+    @include desktop(){
+      padding-bottom: 1rem;
+    }
+
+  }
+
+  &__delete {
+    @include buttonDelete();
+    width: 50%;
+    padding: 1rem;
+    // margin-right: 1rem;
+
+    @include tablet {
+      // width: 7rem;
+      width: fit-content;
+      // margin-right: 3rem;
+    }
+  }
+
+  &__cancel {
+    // margin-left: 1rem;
+    margin-right: 1rem;
+    width: 50%;
+
+    // padding: 1rem;
+    @include buttonSecondary();
+
+    @include tablet {
+      // width: 7rem;
+      width: fit-content;
+    }
+  }
+
+  &__text-container {
+    @include tablet {
+      // padding-bottom: 1rem;
+    }
+  }
+}

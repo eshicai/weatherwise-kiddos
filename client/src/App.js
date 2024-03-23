@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { WeatherWiseCentral } from './pages/WeatherWiseCentral/WeatherWiseCentral.js';
 import { Tomorrow } from './pages/Tomorrow/Tomorrow.js';
+import { Notification } from './pages/Notification/Notification.js';
 import { NotFound } from './pages/NotFound/NotFound.js';
 
 function App() {
@@ -11,6 +12,8 @@ function App() {
           <Route path='/' element={<WeatherWiseCentral />} />
 
           <Route path='/tomorrow' element={<Tomorrow />} />
+
+          <Route path='/notification' element={<Notification />} />
 
           <Route path='*' element={<NotFound />} />
         </Routes>

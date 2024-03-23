@@ -2,6 +2,7 @@ import './LocationAndWeather.scss'
 import React, { useState } from 'react';
 import { GetWeather } from '../GetWeather/GetWeather';
 import { Clock } from '../Clock/Clock';
+import { Notification } from '../../pages/Notification/Notification';
 
 export const LocationAndWeather = () => {
   // default location: Toronto
@@ -19,18 +20,23 @@ export const LocationAndWeather = () => {
   const [longitude, setLongitude] = useState(storedLongitude || defaultLongitude);
   const [timezoneOffset, setTimezoneOffset] = useState(storedTimezoneOffset || defaultTimezoneOffset);
   const [showButton, setShowButton] = useState(buttonClicked !== 'true');
+  const [buttonConfirm, setButtonConfirm] = useState(false);
+
+  const message = 'Click the button below to enable personalized weather forecasts based on your current location';
 
   const handleLocationClick = () => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(fetchWeatherData, handleLocationError);
-    } else {
-      console.log("Geolocation not supported");
-    }
+    setButtonConfirm(true);
 
-    const timezoneOffset = (new Date()).getTimezoneOffset();
-    console.log(timezoneOffset);
-    setTimezoneOffset(timezoneOffset);
-    sessionStorage.setItem('timezoneOffset', timezoneOffset);
+    // if (navigator.geolocation) {
+    //   navigator.geolocation.getCurrentPosition(fetchWeatherData, handleLocationError);
+    // } else {
+    //   console.log("Geolocation not supported");
+    // }
+
+    // const timezoneOffset = (new Date()).getTimezoneOffset();
+    // console.log(timezoneOffset);
+    // setTimezoneOffset(timezoneOffset);
+    // sessionStorage.setItem('timezoneOffset', timezoneOffset);
   }
 
   const fetchWeatherData = (position) => {
@@ -53,13 +59,15 @@ export const LocationAndWeather = () => {
       <div>
         <Clock className='location__clock' />
       </div>
-      {showButton && !location ? (
-        <div>
+      {/* {showButton && !location ? (
+        <div> */}
           <button className='location__button' onClick={handleLocationClick}>Get My Location</button>
-          <p className='location__button-explaination'>Click the button above to enable personalized weather forecasts based on your current location</p>
+          {/* <p className='location__button-explaination'>Click the button above to enable personalized weather forecasts based on your current location</p>
         </div>
-      ) : null}
-      <GetWeather className='location__weather' latitude={latitude} longitude={longitude} timezoneOffset={timezoneOffset} />
+      ) : null} */}
+      {buttonConfirm && <Notification setButtonConfirm={setButtonConfirm} message={message}/>}
+
+      <GetWeather className='location__weather' latitude={latitude} longitude={longitude} timezoneOffset={timezoneOffset} />      
     </div>
   );
 }

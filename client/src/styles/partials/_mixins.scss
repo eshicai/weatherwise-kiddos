@@ -74,3 +74,75 @@
   margin-right: 1rem;
   background: url("../../assets/icons/arrow_back-24px.svg");
 }
+
+@mixin pageCard() {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+
+  max-width: 98vw;
+  width: calc(100vw - 2rem);
+  margin: 0 1rem;
+  margin-bottom: 4rem;
+  overflow: hidden;
+  background-color: $primary-color-white;
+
+  border-radius: 0.25rem;
+  box-shadow: 0 0.125rem 0.3125rem 0 #13182c1a;
+
+  z-index: 1;
+  position: absolute;
+  flex-grow: 1;
+
+  @include tablet() {
+    margin: 0 2rem;
+    width: calc(100vw - 4rem);
+    margin-bottom: 4rem;
+  }
+
+  @include desktop() {
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 75rem;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+}
+
+@mixin buttonPrimary() {
+  color: $white;
+  background-color: $primary-indigo;
+  border: none;
+
+  &:hover {
+    color: $white;
+    background-color: $bg-dark;
+    border: none;
+  }
+}
+
+@mixin buttonSecondary() {
+  color: $secondary-slate;
+  background-color: $white;
+  border: 0.0625rem solid $secondary-cloud;
+  font-weight: 600;
+
+  &:hover {
+    color: $primary-indigo;
+    background-color: $white;
+    border: 0.0625rem solid $primary-indigo;
+  }
+}
+
+@mixin buttonDelete() {
+  color: $primary-color-white;
+  background-color: $sup-red;
+  border: none;
+
+  &:hover {
+    color: $white;
+    background-color: $bg-dark;
+    border: none;
+  }
+}

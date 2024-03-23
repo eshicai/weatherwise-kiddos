@@ -2,12 +2,8 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 
-.video-player {
-  display: flex;
-  flex-direction: column;
-}
-
 .main {
+  @include pageCard();
   display: flex;
   flex-direction: column;
   justify-content: space-between;
