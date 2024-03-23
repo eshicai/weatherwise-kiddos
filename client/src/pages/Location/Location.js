@@ -1,7 +1,7 @@
-import './Notification.scss'
+import './Location.scss'
 import closeX from "../../assets/icons/close-24px.svg";
 
-export const Notification = ({ setButtonConfirm, message }) => {
+export const Location = ({ setButtonConfirm, message }) => {
   //console.log(message);
 
   const handleLocationClick = () => {

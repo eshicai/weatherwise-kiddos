@@ -2,7 +2,7 @@ import './LocationAndWeather.scss'
 import React, { useState } from 'react';
 import { GetWeather } from '../GetWeather/GetWeather';
 import { Clock } from '../Clock/Clock';
-import { Notification } from '../../pages/Notification/Notification';
+import { Location } from '../../pages/Location/Location';
 
 export const LocationAndWeather = () => {
   // default location: Toronto
@@ -65,7 +65,7 @@ export const LocationAndWeather = () => {
           {/* <p className='location__button-explaination'>Click the button above to enable personalized weather forecasts based on your current location</p>
         </div>
       ) : null} */}
-      {buttonConfirm && <Notification setButtonConfirm={setButtonConfirm} message={message}/>}
+      {buttonConfirm && <Location setButtonConfirm={setButtonConfirm} message={message}/>}
 
       <GetWeather className='location__weather' latitude={latitude} longitude={longitude} timezoneOffset={timezoneOffset} />      
     </div>
