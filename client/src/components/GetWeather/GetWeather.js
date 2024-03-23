@@ -2,7 +2,7 @@ import './GetWeather.scss'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-export const GetWeather = ({ latitude, longitude }) => {
+export const GetWeather = ({ latitude, longitude, timezoneOffset }) => {
   const baseUrl = process.env.REACT_APP_BASE_URL;
   const apiKey = process.env.REACT_APP_API_KEY;
 
@@ -11,7 +11,7 @@ export const GetWeather = ({ latitude, longitude }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
 
-  const endpoint = `weather?lat=${latitude}&lon=${longitude}`;
+  const endpoint = `weather?lat=${latitude}&lon=${longitude}&timezoneOffset=${timezoneOffset}`;
   const weatherUrl = `${baseUrl}/${endpoint}&api_key=${apiKey}`;
 
   useEffect(() => {

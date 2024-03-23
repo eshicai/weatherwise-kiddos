@@ -4,15 +4,21 @@ import { GetWeather } from '../GetWeather/GetWeather';
 import { Clock } from '../Clock/Clock';
 
 export const LocationAndWeather = () => {
+  // default location: Toronto
   const defaultLatitude = 43.64780785016635;
   const defaultLongitude = -79.39656626973078;
+  const defaultTimezoneOffset = 240;
 
   const storedLatitude = sessionStorage.getItem('latitude');
   const storedLongitude = sessionStorage.getItem('longitude');
+  const storedTimezoneOffset = sessionStorage.getItem('timezoneOffset');
+  const buttonClicked = sessionStorage.getItem('locationButtonClicked');
 
   const [location, setLocation] = useState(null);
   const [latitude, setLatitude] = useState(storedLatitude || defaultLatitude);
   const [longitude, setLongitude] = useState(storedLongitude || defaultLongitude);
+  const [timezoneOffset, setTimezoneOffset] = useState(storedTimezoneOffset || defaultTimezoneOffset);
+  const [showButton, setShowButton] = useState(buttonClicked !== 'true');
 
   const handleLocationClick = () => {
     if (navigator.geolocation) {
@@ -20,15 +26,22 @@ export const LocationAndWeather = () => {
     } else {
       console.log("Geolocation not supported");
     }
+
+    const timezoneOffset = (new Date()).getTimezoneOffset();
+    console.log(timezoneOffset);
+    setTimezoneOffset(timezoneOffset);
+    sessionStorage.setItem('timezoneOffset', timezoneOffset);
   }
 
   const fetchWeatherData = (position) => {
     setLatitude(position.coords.latitude);
     setLongitude(position.coords.longitude);
-    setLocation({ latitude, longitude });
+    setLocation({ latitude: position.coords.latitude, longitude: position.coords.longitude });
 
     sessionStorage.setItem('latitude', position.coords.latitude);
     sessionStorage.setItem('longitude', position.coords.longitude);
+    sessionStorage.setItem('locationButtonClicked', 'true');
+    setShowButton(false);
   }
 
   const handleLocationError = (error) => {
@@ -40,8 +53,13 @@ export const LocationAndWeather = () => {
       <div>
         <Clock className='location__clock' />
       </div>
-      {!location ? <button className='location__button' onClick={handleLocationClick}>Get Location</button> : null}
-      <GetWeather className='location__weather' latitude={latitude} longitude={longitude} />
+      {showButton && !location ? (
+        <div>
+          <button className='location__button' onClick={handleLocationClick}>Get My Location</button>
+          <p className='location__button-explaination'>Click the button above to enable personalized weather forecasts based on your current location</p>
+        </div>
+      ) : null}
+      <GetWeather className='location__weather' latitude={latitude} longitude={longitude} timezoneOffset={timezoneOffset} />
     </div>
   );
 }

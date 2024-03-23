@@ -22,14 +22,8 @@ router
       const endpoint = `/forecast/?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
       const response = await axios.get(`${baseURL}${endpoint}`);
 
-      // Get tomorrow's date
-      const tomorrow = new Date();
-      console.log(tomorrow);
-      tomorrow.setDate(tomorrow.getDate() + 1);
-      console.log(tomorrow);
-      const tomorrowDate = tomorrow.toISOString().split('T')[0]; // Format date as 'YYYY-MM-DD'
-      console.log(tomorrowDate);
-      //console.log()
+      // Get current date
+      const currentDate = new Date();
 
       const forecasts = response.data.list;
       const city = response.data.city.name;
@@ -47,14 +41,12 @@ router
       // Looping through forecast data
       for (const forecast of forecasts) {
         const forecastTime = new Date(forecast.dt_txt);
-        const forecastDate = forecastTime.toISOString().split('T')[0];
-        
-        // Check if forecast is for tomorrow and between 8am and 5pm
-        if (forecastDate === tomorrowDate && forecastTime.getHours() >= 8 && forecastTime.getHours() <= 17) {
+        console.log(forecast);
+        console.log(forecastTime);
+
+        // Check if forecast is for today and between current time and 5pm
+        if (forecastTime.getDate() === currentDate.getDate() && forecastTime.getHours() >= currentDate.getHours() && forecastTime.getHours() <= 17) {
           // Update temperature range
-          // console.log(forecastTime.getHours());
-          // console.log(temperatureRange.min);
-          // console.log(forecast.main.temp);
           if (forecast.main.temp < temperatureRange.min) {
             temperatureRange.min = forecast.main.temp;
           }
@@ -116,7 +108,7 @@ router
       const descriptions = Object.keys(descriptionSummary);
       descriptions.forEach((description, index) => {
         if (index > 0) {
-          weatherDescriptionString += ', ';
+          weatherDescriptionString += ' with';
         }
         weatherDescriptionString += ` ${description}`;
       });
@@ -126,9 +118,9 @@ router
       const pieces = getPiecesFromTemperature(averageTemperature);
       const essentials = getEssentials(rain, snow);
       const accessories = getAccessoriesFromTemperature(averageTemperature);
-      const specialEventTomorrow = getSpecials(tomorrow);
+      const specialEventToday = getSpecials(currentDate);
 
-      // Send summarized weather data for tomorrow as response
+      // Send summarized weather data for today as response
       res.json({
         city,
         country,
@@ -144,7 +136,7 @@ router
         pieces,
         essentials,
         accessories,
-        "specials": specialEventTomorrow
+        "specials": specialEventToday
       });
     } catch (error) {
       console.error('Error fetching forecast data:', error);

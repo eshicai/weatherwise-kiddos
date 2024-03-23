@@ -14,7 +14,8 @@ router
   .route('/')
   .get(async (req, res) => {
     try {
-      const { lat, lon } = req.query;
+      const { lat, lon, timezoneOffset } = req.query;
+      console.log(timezoneOffset);
       const endpoint = `/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
       const response = await axios.get(`${baseURL}${endpoint}`);
 
