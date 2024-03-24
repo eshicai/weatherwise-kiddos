@@ -9,13 +9,13 @@ router
   .route('/')
   .get(async (req, res) => {
     try {
-      const { lat, lon, timezoneOffset } = req.query;
+      const { lat, lon, timezoneOffset: clientTimezoneOffset } = req.query;
 
       const date = new Date();
       // set date to tomorow to retrieve tomorrow's data
       date.setDate(date.getDate() + 1);
 
-      const weatherData = await getForecastWeather(lat, lon, date);
+      const weatherData = await getForecastWeather(lat, lon, date, clientTimezoneOffset);
 
       res.json(weatherData);
     } catch (error) {

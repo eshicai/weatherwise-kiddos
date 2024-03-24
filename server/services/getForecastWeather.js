@@ -11,7 +11,7 @@ const { getSpecials } = require('./getSpecials');
 const apiKey = process.env.OPENWEATHER_API_KEY;
 const baseURL = 'https://api.openweathermap.org/data/2.5';
 
-const getForecastWeather = async (lat, lon, date) => {
+const getForecastWeather = async (lat, lon, date, clientTimezoneOffset) => {
   try {
     const endpoint = `/forecast/?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
     const response = await axios.get(`${baseURL}${endpoint}`);
@@ -40,13 +40,16 @@ const getForecastWeather = async (lat, lon, date) => {
       console.log("forecastTime.getHours()" + forecastTime.getHours());
 
       const selectedDate = date.getDate();
+
+      // target data from 8 AM to 5 PM locally for school time
+      // use timezone offset from client to calculate how to select data from forecast      
       const startHour = 8; // 8 AM
       const endHour = 17; // 5 PM
-      const span = endHour - startHour; // in this case, 9 hours
-      const offset = 7; // Client timezene offset. in this case, 7 hours      
+      const offset = clientTimezoneOffset; // Client timezene offset.      
       const nextDayEndhour = endHour - startHour + offset - 24; // if offset >= 7, need data from next day in UTC time
+      const offsetBreakpoint = 24 - endHour; // 7 hours
 
-      if ((offset < 7 && (
+      if ((offset < offsetBreakpoint && (
         (forecastTime.getDate() === date.getDate() && forecastTime.getHours() >= (8 + offset) && forecastTime.getHours() <= (17 + offset))
       ))
         || (
