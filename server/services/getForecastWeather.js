@@ -32,10 +32,29 @@ const getForecastWeather = async (lat, lon, date) => {
     for (const forecast of forecasts) {
       const forecastTime = new Date(forecast.dt_txt);
 
-      // Check if forecast is for the specified date and between current time and 5pm
-      //if (forecastTime.getDate() === date.getDate() && forecastTime.getHours() >= selectedDate.getHours() && forecastTime.getHours() <= 17) {
-      if (forecastTime.getDate() === date.getDate() && forecastTime.getHours() >= 8 && forecastTime.getHours() <= 17) {
+      console.log("$$$$$$$$$$$$$$$$$$$$$");
+      console.log("date=" + date);
+      console.log("date.getDate()=" + date.getDate());
+      console.log("forecastTime" + forecastTime);
+      console.log("forecastTime.getDate()" + forecastTime.getDate());
+      console.log("forecastTime.getHours()" + forecastTime.getHours());
+
+      const selectedDate = date.getDate();
+      const startHour = 8; // 8 AM
+      const endHour = 17; // 5 PM
+      const span = endHour - startHour; // in this case, 9 hours
+      const offset = 7; // Client timezene offset. in this case, 7 hours      
+      const nextDayEndhour = endHour - startHour + offset - 24; // if offset >= 7, need data from next day in UTC time
+
+      if ((offset < 7 && (
+        (forecastTime.getDate() === date.getDate() && forecastTime.getHours() >= (8 + offset) && forecastTime.getHours() <= (17 + offset))
+      ))
+        || (
+          ((forecastTime.getDate() === selectedDate && forecastTime.getHours() >= (8 + offset) && forecastTime.getHours() <= 23) ||
+            (forecastTime.getDate() === (selectedDate + 1) && forecastTime.getHours() < nextDayEndhour))
+        )) {
         // Update temperature range, feelsLike range, etc.
+        console.log(forecast.main.temp);
         if (forecast.main.temp < temperatureRange.min) {
           temperatureRange.min = forecast.main.temp;
         }
