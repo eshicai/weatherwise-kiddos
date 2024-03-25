@@ -44,15 +44,13 @@ export const LocationAndWeather = () => {
 
   useEffect(() => {
     const getGeoLocation = () => {
-      console.log('getting location!!');
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(fetchWeatherData, handleLocationError);
       } else {
-        console.log("Geolocation not supported");
+        console.error("Geolocation not supported");
       }
 
       const timezoneOffset = (new Date()).getTimezoneOffset();
-      console.log(timezoneOffset);
       setTimezoneOffset(timezoneOffset);
       sessionStorage.setItem('timezoneOffset', timezoneOffset);
     }
