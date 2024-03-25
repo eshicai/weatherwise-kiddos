@@ -2,7 +2,6 @@ import './LocationAndWeather.scss'
 import React, { useEffect, useState } from 'react';
 import { TodayWeather } from '../TodayWeather/TodayWeather';
 import { ForecastWeather } from '../ForecastWeather/ForecastWeather';
-import { Clock } from '../Clock/Clock';
 import { Location } from '../../pages/Location/Location';
 
 export const LocationAndWeather = () => {
@@ -28,20 +27,6 @@ export const LocationAndWeather = () => {
     setButtonConfirm(true);
   }
 
-  const getGeoLocation = () => {
-    console.log('getting location!!');
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(fetchWeatherData, handleLocationError);
-    } else {
-      console.log("Geolocation not supported");
-    }
-
-    const timezoneOffset = (new Date()).getTimezoneOffset();
-    console.log(timezoneOffset);
-    setTimezoneOffset(timezoneOffset);
-    sessionStorage.setItem('timezoneOffset', timezoneOffset);
-  }
-
   const fetchWeatherData = (position) => {
     setLatitude(position.coords.latitude);
     setLongitude(position.coords.longitude);
@@ -58,26 +43,34 @@ export const LocationAndWeather = () => {
   }
 
   useEffect(() => {
+    const getGeoLocation = () => {
+      console.log('getting location!!');
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(fetchWeatherData, handleLocationError);
+      } else {
+        console.log("Geolocation not supported");
+      }
+  
+      const timezoneOffset = (new Date()).getTimezoneOffset();
+      console.log(timezoneOffset);
+      setTimezoneOffset(timezoneOffset);
+      sessionStorage.setItem('timezoneOffset', timezoneOffset);
+    }
+
     if (getLocation) {
       getGeoLocation();
-
       setGetLocation(false);
     }
-  }, ([getLocation], [getGeoLocation]));
+  }, ([getLocation]));
 
-  const currentHour = new Date().getHours();
-  const endHour = 17;
+  const currentHour = new Date().getHours();  
   const dateOffset = 0;
 
   return (
     <div className='location'>
-      <div>
-        <Clock className='location__clock' />
-      </div>
       {showButton && !location ? (
         <div>
           <button className='location__button' onClick={handleLocationClick}>Get My Location</button>
-          <p className='location__button-explaination'>Click the button above to enable personalized weather forecasts based on your current location</p>
         </div>
       ) : null}
       {buttonConfirm && <Location setButtonConfirm={setButtonConfirm} setGetLocation={setGetLocation} />}

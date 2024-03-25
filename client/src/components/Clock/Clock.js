@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 export const Clock = () => {
   const [currentTime, setCurrentTime] = useState(new Date());
@@ -26,12 +26,13 @@ export const Clock = () => {
     return `${hours}:${minutes} ${period}`;
   };
 
+  console.log(currentTime.toLocaleTimeString());
   // Format the current time
   const formattedTime = formatTime(currentTime);
 
   return (
     <div>
-      <p>Now {formattedTime}</p>
+      <h3>Now {formattedTime}</h3>
     </div>
   );
 }

@@ -5,6 +5,7 @@ import { Slogan } from '../../components/Slogan/Slogan';
 import { Link } from 'react-router-dom';
 import { BackwardLink } from '../../components/BackwardLink/BackwardLink';
 import { ForwardLink } from '../../components/ForwardLink/ForwardLink';
+import { DateInfo } from '../../components/DateInfo/DateInfo';
 
 export const DayAfterTomorrow = () => {
   const dateOffset = 2;
@@ -13,6 +14,7 @@ export const DayAfterTomorrow = () => {
     <div className="day-after-tomorrow-page">
       <Header />
       <main className='main'>
+      <DateInfo dateOffset={dateOffset} />
         <div className="day-after-tomorrow-page__heading-container">
           <BackwardLink link="/tomorrow" heading="Tomorrow" />
           <Link to='/'></Link>
