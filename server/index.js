@@ -6,6 +6,7 @@ const weatherRoutes = require('./routes/weather');
 const weatherSummaryRoutes = require('./routes/weatherSummary');
 const tomorrowRoutes = require('./routes/tomorrow');
 const todayRoutes = require('./routes/today');
+const forecastRoutes = require('./routes/forecast');
 
 const app = express();
 const port = process.env.port || process.argv[2] || 8080;
@@ -25,6 +26,7 @@ app.use('/weather', weatherRoutes);
 app.use('/weathersummary', weatherSummaryRoutes);
 app.use('/tomorrow', tomorrowRoutes);
 app.use('/today', todayRoutes);
+app.use('/forecast', forecastRoutes);
 
 app.listen(port, () => {
   console.log(`Listening on ${port}`);

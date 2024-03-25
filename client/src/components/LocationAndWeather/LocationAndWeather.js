@@ -1,6 +1,7 @@
 import './LocationAndWeather.scss'
 import React, { useEffect, useState } from 'react';
 import { TodayWeather } from '../TodayWeather/TodayWeather';
+import { ForecastWeather } from '../ForecastWeather/ForecastWeather';
 import { Clock } from '../Clock/Clock';
 import { Location } from '../../pages/Location/Location';
 
@@ -41,7 +42,6 @@ export const LocationAndWeather = () => {
     sessionStorage.setItem('timezoneOffset', timezoneOffset);
   }
 
-
   const fetchWeatherData = (position) => {
     setLatitude(position.coords.latitude);
     setLongitude(position.coords.longitude);
@@ -65,6 +65,10 @@ export const LocationAndWeather = () => {
     }
   }, ([getLocation], [getGeoLocation]));
 
+  const currentHour = new Date().getHours();
+  const endHour = 17;
+  const dateOffset = 0;
+
   return (
     <div className='location'>
       <div>
@@ -78,7 +82,10 @@ export const LocationAndWeather = () => {
       ) : null}
       {buttonConfirm && <Location setButtonConfirm={setButtonConfirm} setGetLocation={setGetLocation} />}
 
-      <TodayWeather className='location__weather' latitude={latitude} longitude={longitude} timezoneOffset={timezoneOffset} />
+      {currentHour < 17 ?
+        <ForecastWeather dateOffset={dateOffset} />
+        :
+        <TodayWeather className='location__weather' latitude={latitude} longitude={longitude} timezoneOffset={timezoneOffset} />}
     </div>
   );
 }
