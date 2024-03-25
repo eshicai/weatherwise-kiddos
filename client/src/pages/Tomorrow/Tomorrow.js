@@ -2,7 +2,8 @@ import './Tomorrow.scss'
 import { Header } from '../../components/Header/Header';
 import { ForecastWeather } from '../../components/ForecastWeather/ForecastWeather';
 import { Slogan } from '../../components/Slogan/Slogan';
-import { HeadingWithBackArrow } from '../../components/HeadingWithBackArrow/HeadingWithBackArrow';
+import { BackwardLink } from '../../components/BackwardLink/BackwardLink';
+import { ForwardLink } from '../../components/ForwardLink/ForwardLink';
 
 export const Tomorrow = () => {
   const dateOffset = 1;
@@ -12,7 +13,8 @@ export const Tomorrow = () => {
       <Header />
       <main className='main'>
         <div className="tomorrow-page__heading-container">
-          <HeadingWithBackArrow link="/" heading="Today" />
+          <BackwardLink link="/" heading="Today" />
+          <ForwardLink link="/day_after_tomorrow" heading="The Day after Tomorrow" />
         </div>
         <ForecastWeather dateOffset={dateOffset} />
         <Slogan />

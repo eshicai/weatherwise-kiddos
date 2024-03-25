@@ -2,7 +2,7 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 
-.heading-with-back-arrow {
+.forward {
   display: flex;
   flex-flow: row nowrap;
   width: 100%;
@@ -15,8 +15,8 @@
   @include desktop {
     padding-top: 0.5rem;
   }
-  &__back-link {
-    @include backArrowStyle();
+  &-link {
+    @include rightArrowStyle();
     display: flex;
     align-items: center;
     background-repeat: no-repeat;
@@ -26,9 +26,4 @@
       background-position-x: -4px;
     }
   }
-
-  // &__heading {
-  //   @include pageHeading();
-  //   white-space: nowrap;
-  // }
 }

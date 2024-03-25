@@ -1,0 +1,29 @@
+@use "../../styles/partials/global";
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.backward {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+  align-items: center;
+  background-color: inherit;
+
+  @include tablet() {
+    justify-content: flex-start;
+  }
+  @include desktop {
+    padding-top: 0.5rem;
+  }
+  &-link {
+    @include leftArrowStyle();
+    display: flex;
+    align-items: center;
+    background-repeat: no-repeat;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      background-position-x: -4px;
+    }
+  }
+}
