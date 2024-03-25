@@ -69,7 +69,7 @@ export const ForecastWeather = ({ dateOffset }) => {
   console.log(clothing);
   console.log(pieces);
 
-  const day = getDayNumberInWeek(1);
+  const day = getDayNumberInWeek(dateOffset);
 
   return (
     <div className='forecast'>
