@@ -29,35 +29,40 @@ const getForecastWeather = async (lat, lon, date, clientTimezoneOffset) => {
     let rain = false;
     let snow = false;
 
+    // target data from 8 AM to 5 PM locally for school time
+    // use timezone offset from client to calculate how to select data from forecast     
+    //const startHour = 8; // 8 AM
+    const endHour = 17; // 5 PM
+    const offset = clientTimezoneOffset / 60; // Client timezene offset in hours.
+    const offsetBreakpoint = 24 - endHour; // max 24 hours per day, 24 - 17 = 7
+    const nextDayEndhour = endHour + offset - 24; // if offset >= 7, need data from next day in UTC time      
+
+    console.log("clientTimezoneOffset=" + clientTimezoneOffset);
+    console.log("date=" + date);
+    console.log("offset=" + offset);
+    const selectedDate = date.getDate();
+    console.log("selectedDate" + selectedDate);
+    console.log("offsetBreakpoint=" + offsetBreakpoint);
+    console.log("nextDayEndhour=" + nextDayEndhour);
+
     for (const forecast of forecasts) {
       const forecastTime = new Date(forecast.dt_txt);
 
       console.log("$$$$$$$$$$$$$$$$$$$$$");
-      console.log("date=" + date);
-      console.log("date.getDate()=" + date.getDate());
-      console.log("forecastTime" + forecastTime);
-      console.log("forecastTime.getDate()" + forecastTime.getDate());
-      console.log("forecastTime.getHours()" + forecastTime.getHours());
-
-      const selectedDate = date.getDate();
-
-      // target data from 8 AM to 5 PM locally for school time
-      // use timezone offset from client to calculate how to select data from forecast      
-      const startHour = 8; // 8 AM
-      const endHour = 17; // 5 PM
-      const offset = clientTimezoneOffset; // Client timezene offset.      
-      const nextDayEndhour = endHour - startHour + offset - 24; // if offset >= 7, need data from next day in UTC time
-      const offsetBreakpoint = 24 - endHour; // 7 hours
+      console.log("forecastTime=" + forecastTime);
+      console.log("forecastTime.getDate()=" + forecastTime.getDate());
+      console.log("forecastTime.getHours()=" + forecastTime.getHours());
+      console.log('\n');
 
       if ((offset < offsetBreakpoint && (
-        (forecastTime.getDate() === date.getDate() && forecastTime.getHours() >= (8 + offset) && forecastTime.getHours() <= (17 + offset))
+        (forecastTime.getDate() === selectedDate && forecastTime.getHours() >= (8 + offset) && forecastTime.getHours() <= (17 + offset))
       ))
-        || (
-          ((forecastTime.getDate() === selectedDate && forecastTime.getHours() >= (8 + offset) && forecastTime.getHours() <= 23) ||
-            (forecastTime.getDate() === (selectedDate + 1) && forecastTime.getHours() < nextDayEndhour))
-        )) {
+        || 
+          ((forecastTime.getDate() === selectedDate && forecastTime.getHours() >= (8 + offset) && forecastTime.getHours() < 24) ||
+            (forecastTime.getDate() === (selectedDate + 1) && forecastTime.getHours() <= nextDayEndhour))
+        ) {
         // Update temperature range, feelsLike range, etc.
-        console.log(forecast.main.temp);
+        console.log("### forecast.main.temp=" + forecast.main.temp);
         if (forecast.main.temp < temperatureRange.min) {
           temperatureRange.min = forecast.main.temp;
         }
