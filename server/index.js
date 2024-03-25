@@ -10,7 +10,7 @@ const forecastRoutes = require('./routes/forecast');
 
 const app = express();
 const port = process.env.port || process.argv[2] || 8080;
-const { CORS_ORIGIN } = process.env;
+const CORS_ORIGIN = process.env.CORS_ORIGIN || 'http://localhost:3000';
 
 app.use(cors({ origin: CORS_ORIGIN }));
 app.use(express.json());
