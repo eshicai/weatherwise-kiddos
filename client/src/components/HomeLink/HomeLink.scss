@@ -2,7 +2,7 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 
-.forward {
+.home {
   display: flex;
   flex-flow: row nowrap;
   width: 100%;
@@ -15,15 +15,16 @@
   @include desktop {
     padding-top: 0.5rem;
   }
+
   &-link {
-    @include rightArrowStyle;
+    @include goHomeStyle;
     display: flex;
     align-items: center;
     background-repeat: no-repeat;
     transition: all 0.3s ease-in-out;
 
     &:hover {
-      background-position-x: 0.25rem;
+      background-position-y: -0.1rem;
     }
   }
 

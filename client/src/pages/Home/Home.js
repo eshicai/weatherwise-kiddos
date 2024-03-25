@@ -8,16 +8,16 @@ import { DateInfo } from '../../components/DateInfo/DateInfo';
 
 export const Home = () => {
   return (
-    <div className="home-page">
+    <div className="homepage">
       <Header />
-      <main className='main'>
-        <div>
-          <DateInfo />
-          <Clock className='location__clock' />
+      <main className='homepage-main'>
+        <div className="homepage__info">
+          <DateInfo className="homepage__info-date" />
+          <Clock className='homepage__info-clock' />
         </div>
-        <ForwardLink link="/tomorrow" heading="Tomorrow" />
-        <LocationAndWeather />
-        <Slogan />
+        <ForwardLink className="homepage__right-link" link="/tomorrow" heading="Tomorrow" />
+        <LocationAndWeather className="homepage__location-weather" />
+        <Slogan className="homepage__slogan" />
       </main>
     </div>
   )

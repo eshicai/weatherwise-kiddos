@@ -26,7 +26,6 @@ export const Clock = () => {
     return `${hours}:${minutes} ${period}`;
   };
 
-  console.log(currentTime.toLocaleTimeString());
   // Format the current time
   const formattedTime = formatTime(currentTime);
 

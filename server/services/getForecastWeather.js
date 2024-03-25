@@ -39,13 +39,6 @@ const getForecastWeather = async (lat, lon, date, clientTimezoneOffset) => {
 
     const selectedDate = date.getDate();
 
-    console.log("clientTimezoneOffset=" + clientTimezoneOffset);
-    console.log("date=" + date);
-    console.log("offset=" + offset);    
-    console.log("selectedDate" + selectedDate);
-    console.log("offsetBreakpoint=" + offsetBreakpoint);
-    console.log("nextDayEndhour=" + nextDayEndhour);
-
     for (const forecast of forecasts) {
       const forecastTime = new Date(forecast.dt_txt);
 
@@ -63,7 +56,6 @@ const getForecastWeather = async (lat, lon, date, clientTimezoneOffset) => {
             (forecastTime.getDate() === (selectedDate + 1) && forecastTime.getHours() <= nextDayEndhour))
         ) {
         // Update temperature range, feelsLike range, etc.
-        console.log("### forecast.main.temp=" + forecast.main.temp);
         if (forecast.main.temp < temperatureRange.min) {
           temperatureRange.min = forecast.main.temp;
         }

@@ -50,7 +50,7 @@ export const LocationAndWeather = () => {
       } else {
         console.log("Geolocation not supported");
       }
-  
+
       const timezoneOffset = (new Date()).getTimezoneOffset();
       console.log(timezoneOffset);
       setTimezoneOffset(timezoneOffset);
@@ -63,7 +63,7 @@ export const LocationAndWeather = () => {
     }
   }, ([getLocation]));
 
-  const currentHour = new Date().getHours();  
+  const currentHour = new Date().getHours();
   const dateOffset = 0;
 
   return (
@@ -75,10 +75,11 @@ export const LocationAndWeather = () => {
       ) : null}
       {buttonConfirm && <Location setButtonConfirm={setButtonConfirm} setGetLocation={setGetLocation} />}
 
-      {currentHour < 17 ?
+      {/* {currentHour < 17 ?
         <ForecastWeather dateOffset={dateOffset} />
-        :
-        <TodayWeather className='location__weather' latitude={latitude} longitude={longitude} timezoneOffset={timezoneOffset} />}
+        : */}
+        <TodayWeather className='location__weather' latitude={latitude} longitude={longitude} />
+      {/* } */}
     </div>
   );
 }

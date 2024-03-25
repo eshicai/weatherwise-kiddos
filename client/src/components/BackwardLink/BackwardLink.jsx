@@ -3,11 +3,11 @@ import "./BackwardLink.scss";
 
 export const BackwardLink = ({ link, heading, className }) => {
   return (
-    <article
-      className={`backward ${className ? className : ""}`}
-    >
+    <article className={`backward ${className ? className : ""}`}>
       <Link className="backward-link" to={link}></Link>
-      <h1 className="backward__heading">{heading}</h1>
+      <Link className="backward-heading-link" to={link}>
+        <h1 className="backward__heading">{heading}</h1>
+      </Link>
     </article>
   );
 };

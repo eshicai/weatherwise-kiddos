@@ -15,9 +15,6 @@ export const ForecastWeather = ({ dateOffset }) => {
   const latitude = sessionStorage.getItem('latitude') || defaultLatitude;
   const longitude = sessionStorage.getItem('longitude') || defaultLongitude;
   const timezoneOffset = sessionStorage.getItem('timezoneOffset') || defaultTimezoneOffset;
-  console.log(latitude);
-  console.log(longitude);
-  console.log(timezoneOffset);
 
   const [forecast, setForecast] = useState('');
   const [isLoading, setIsLoading] = useState(true);
@@ -66,9 +63,6 @@ export const ForecastWeather = ({ dateOffset }) => {
     specials
   } = forecast;
 
-  console.log(clothing);
-  console.log(pieces);
-
   const day = getDayNumberInWeek(dateOffset);
 
   return (
@@ -84,12 +78,12 @@ export const ForecastWeather = ({ dateOffset }) => {
           <p className='forecast__main-weather'>{weatherSummary.weatherMain}</p>
           <p className='forecast__description'>{descriptionSummary.weatherDescription}</p>
           <p className='forecast__description'>{weatherDescription}</p>
-          <p className='forecast__rain'>{rain}</p>
-          <p className='forecast__rain'>{snow}</p>
+          {rain === true && <p className='forecast__rain'>🌧️ Rain</p>}
+          {snow === true && <p className='forecast__snow'>❄️ Snow</p>}
         </div>
         <div className='forecast__clothing'>
           <h3 className='forecast__clothing-title'>Clothing:</h3>
-          <p className='forecast__clothing-top'>{clothing.description}</p>
+          <p className='forecast__clothing-description'>{clothing.description}</p>
           <p className='forecast__clothing-top'>Top: {clothing.top}</p>
           <p className='forecast__clothing-bottom'>Bottom: {clothing.bottom}</p>
           <p className='forecast__clothing-jacket'>Jacket: {clothing.jacket}</p>

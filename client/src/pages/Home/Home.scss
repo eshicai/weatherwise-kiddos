@@ -2,11 +2,13 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 
-.main {
-  @include pageCard();
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.homepage {
+  &-main {
+    @include pageCard();
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;    
+  }
 
   &-info {
     padding: 1rem;
@@ -17,5 +19,10 @@
       padding-left: 8rem;
       padding-right: 8rem;
     }
+  }
+
+  &__right-link {
+    display: flex;
+    align-self: flex-end;
   }
 }

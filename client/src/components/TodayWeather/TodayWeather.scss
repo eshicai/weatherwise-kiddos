@@ -34,4 +34,11 @@
     border: solid #189AB4 0.0625rem;
     padding: 1rem;
   }
+
+  &__piece-image {
+    max-width: 8rem;
+    max-height: rem;
+    width: 8rem;
+    height: 8rem;
+  }
 }

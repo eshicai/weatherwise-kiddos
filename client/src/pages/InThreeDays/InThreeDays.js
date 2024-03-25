@@ -2,8 +2,8 @@ import './InThreeDays.scss'
 import { Header } from '../../components/Header/Header';
 import { ForecastWeather } from '../../components/ForecastWeather/ForecastWeather';
 import { Slogan } from '../../components/Slogan/Slogan';
-import { Link } from 'react-router-dom';
 import { BackwardLink } from '../../components/BackwardLink/BackwardLink';
+import { HomeLink } from '../../components/HomeLink/HomeLink';
 import { DateInfo } from '../../components/DateInfo/DateInfo';
 
 export const InThreeDays = () => {
@@ -16,7 +16,7 @@ export const InThreeDays = () => {
         <DateInfo dateOffset={dateOffset} />
         <div className="in-three-days-page__heading-container">
           <BackwardLink link="/day_after_tomorrow" heading="The Day after Tomorrow" />
-          <Link to='/'></Link>
+          <HomeLink link="/" heading="Today" />
         </div>
         <ForecastWeather dateOffset={dateOffset} />
         <Slogan />
