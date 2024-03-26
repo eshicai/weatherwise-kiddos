@@ -1,27 +1,45 @@
-const fs = require('fs');
-const JSON_FILE_PATH = './data/essentials.json';
+const knex = require("knex")(require("../knexfile"));
 
 /**
  * Retrieves the essential item based on weather conditions.
  * @param {boolean} rain - Indicates if it's raining.
  * @param {boolean} snow - Indicates if it's snowing.
- * @returns {Object | undefined} - The essential item found based on weather conditions, or undefined if not found.
+ * @returns {Object | undefined} - The essential item found based on weather conditions.
  */
-const getEssentials = (rain, snow) => {
-  const essentials = JSON.parse(fs.readFileSync(JSON_FILE_PATH, 'utf8'));
-
+const getEssentials = async (rain, snow) => {
   let foundEssential = '';
 
-  if (snow) {
-    // Find the essential item for snow conditions
-    foundEssential = essentials.find(item => item.condition === 'snow');
-  } else if (rain) {
-    // Find the essential item for rain conditions
-    foundEssential = essentials.find(item => item.condition === 'rain');
-  }
+  try {
+    if (snow) {
+      foundEssential = await knex('essentials')
+        .where('condition', 'snow')
+        .select(
+          'jacket',
+          'jacket_image',
+          'pants',
+          'pants_image',
+          'footware',
+          'footware_image'
+        )
+        .first();
+    } else if (rain) {
+      foundEssential = await knex('essentials')
+        .where('condition', 'rain')
+        .select(
+          'jacket',
+          'jacket_image',
+          'pants',
+          'pants_image',
+          'footware',
+          'footware_image'
+        )
+        .first();
+    }
 
-  // Return the found essential item or an empty string if not found
-  return foundEssential;
+    return foundEssential;
+  } catch (error) {
+    throw new Error('Error finding items: ' + error.message);
+  }
 }
 
 module.exports = {

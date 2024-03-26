@@ -123,11 +123,56 @@ const getForecastWeather = async (lat, lon, date, clientTimezoneOffset) => {
     });
 
     // Retrieving clothing, pieces, essentials and specials data based on weather conditions or date
-    const clothing = getClothingFromTemperature(averageTemperature);
-    const pieces = getPiecesFromTemperature(averageTemperature);
-    const essentials = getEssentials(rain, snow);
-    const accessories = getAccessoriesFromTemperature(averageTemperature);
-    const specials = getSpecials(date);
+    let clothing = '';
+    try {
+      clothing = await getClothingFromTemperature(averageTemperature);
+    } catch(error) {
+      return res.status(500).json({
+        message: 'Failed to fetch clothings data',
+      });
+    }
+
+    let pieces = '';
+    try {
+      pieces = await getPiecesFromTemperature(averageTemperature);
+    } catch(error) {
+      return res.status(500).json({
+        message: 'Failed to fetch clothing pieces data',
+      });
+    }
+
+    let accessories = '';
+    try {
+      accessories = await getAccessoriesFromTemperature(averageTemperature);
+    } catch(error) {
+      return res.status(500).json({
+        message: 'Failed to fetch clothing accessories data',
+      });
+    }
+
+    let essentials = '';
+    try {
+      essentials = await getEssentials(rain, snow);
+    } catch(error) {
+      return res.status(500).json({
+        message: 'Failed to fetch clothing essentials data',
+      });
+    }
+
+    let specials = '';
+    try {
+      specials = await getSpecials(date);
+    } catch(error) {
+      return res.status(500).json({
+        message: 'Failed to fetch clothing specials data',
+      });
+    }
+
+    if (clothing.length === 0 || pieces.length === 0 || accessories.length === 0) {
+      return res.status(501).json({
+        message: `Temperature ${currentTemp} not implemented`,
+      });
+    }
 
     return {
       city,

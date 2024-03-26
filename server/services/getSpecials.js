@@ -1,26 +1,28 @@
-const fs = require('fs');
-
-const JSON_FILE_PATH = './data/specials.json';
+const knex = require("knex")(require("../knexfile"));
 
 /**
  * Retrieves special event data based on the given date.
  * @param {Date} date - The date to check for special events.
- * @returns {Object | undefined} - The special event object found based on the provided date, or undefined if not found.
+ * @returns {Object | undefined} - The special event object found based on the provided date.
  */
-const getSpecials = (date) => {
-  const specials = JSON.parse(fs.readFileSync(JSON_FILE_PATH, 'utf8'));
-
+const getSpecials = async (date) => {
   // Get the month and date from the provided date
   const targetMonth = date.getMonth() + 1; // month starts from 0, so add 1
   const targetDateOfMonth = date.getDate();
 
-  // Find a special event matching the provided date
-  const foundSpecial = specials.find(event => 
-    event.month === targetMonth && event.date === targetDateOfMonth
-  );
+  try {
+    const foundSpecial = await knex('specials')
+      .where('month', targetMonth)
+      .where('date', targetDateOfMonth)
+      .select(
+        'event',
+        'color'
+      );
 
-  // Return the found special or undefined if not found
-  return foundSpecial;
+    return foundSpecial;
+  } catch (error) {
+    throw new Error('Error finding items: ' + error.message);
+  }
 };
 
 module.exports = {

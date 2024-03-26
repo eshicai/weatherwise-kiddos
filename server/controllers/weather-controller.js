@@ -23,11 +23,58 @@ const currentWeather = async (req, res) => {
     const rain = (weatherData.weather.some(item => item.main.includes('Rain'))) ? true : false;
     const snow = (weatherData.weather.some(item => item.main.includes('Snow'))) ? true : false;
 
-    const clothing = getClothingFromTemperature(currentTemp);
-    const pieces = getPiecesFromTemperature(currentTemp);
-    const essentials = getEssentials(rain, snow);
-    const accessories = getAccessoriesFromTemperature(currentTemp);
-    const specials = getSpecials(new Date());
+    let clothing = '';
+    try {
+      clothing = await getClothingFromTemperature(currentTemp);
+    } catch(error) {
+      return res.status(500).json({
+        message: 'Failed to fetch clothings data',
+      });
+    }
+
+    let pieces = '';
+    try {
+      pieces = await getPiecesFromTemperature(currentTemp);
+    } catch(error) {
+      return res.status(500).json({
+        message: 'Failed to fetch clothing pieces data',
+      });
+    }
+
+    let accessories = '';
+    try {
+      accessories = await getAccessoriesFromTemperature(currentTemp);
+    } catch(error) {
+      return res.status(500).json({
+        message: 'Failed to fetch clothing accessories data',
+      });
+    }
+
+    let essentials = '';
+    try {
+      essentials = await getEssentials(rain, snow);
+    } catch(error) {
+      return res.status(500).json({
+        message: 'Failed to fetch clothing essentials data',
+      });
+    }
+
+    let specials = '';
+    try {
+      specials = await getSpecials(new Date());
+    } catch(error) {
+      return res.status(500).json({
+        message: 'Failed to fetch clothing specials data',
+      });
+    }
+
+    if (clothing.length === 0 || pieces.length === 0 || accessories.length === 0) {
+      return res.status(501).json({
+        message: `Temperature ${currentTemp} not implemented`,
+      });
+    }
+
+    console.log(clothing);
 
     const results = {
       "city": weatherData.name,
@@ -38,7 +85,7 @@ const currentWeather = async (req, res) => {
       snow,
       "mainWeather": weatherData.weather[0].main,
       "weatherDescription": weatherData.weather[0].description,
-      "clothing": clothing,
+      clothing,
       pieces,
       essentials,
       accessories,
