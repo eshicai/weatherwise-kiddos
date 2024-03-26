@@ -74,8 +74,6 @@ const currentWeather = async (req, res) => {
       });
     }
 
-    console.log(clothing);
-
     const results = {
       "city": weatherData.name,
       "country": weatherData.sys.country,
