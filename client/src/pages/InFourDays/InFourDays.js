@@ -1,24 +1,22 @@
-import './InThreeDays.scss'
+import './InFourDays.scss'
 import { Header } from '../../components/Header/Header';
 import { ForecastWeather } from '../../components/ForecastWeather/ForecastWeather';
 import { Slogan } from '../../components/Slogan/Slogan';
 import { BackwardLink } from '../../components/BackwardLink/BackwardLink';
-import { ForwardLink } from '../../components/ForwardLink/ForwardLink';
 import { HomeLink } from '../../components/HomeLink/HomeLink';
 import { DateInfo } from '../../components/DateInfo/DateInfo';
 
-export const InThreeDays = () => {
+export const InFourDays = () => {
   const dateOffset = 3;
 
   return (
-    <div className="in-three-days-page">
+    <div className="in-four-days-page">
       <Header />
       <main className='main'>
         <DateInfo dateOffset={dateOffset} />
-        <div className="in-three-days-page__heading-container">
-          <BackwardLink link="/day_after_tomorrow" heading="The Day after Tomorrow" />
+        <div className="in-four-days-page__heading-container">
+          <BackwardLink link="/in_three_days" heading="Three Days from Now" />
           <HomeLink link="/" heading="Today" />
-          <ForwardLink link="/in_four_days" heading="Four Days from Now" />
         </div>
         <ForecastWeather dateOffset={dateOffset} />
         <Slogan />
