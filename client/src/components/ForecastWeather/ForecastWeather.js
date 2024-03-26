@@ -94,9 +94,9 @@ export const ForecastWeather = ({ dateOffset }) => {
         <img className='forecast__clothing-image' src={`${baseUrl}${clothing.image}`} alt='forecast clothes' />
       </div>
       <div className='forecast__pieces-container'>
-        <img className='forecast__piece-image' src={`${baseUrl}${pieces.top}/${day}.png`} alt='top for forecast' />
-        <img className='forecast__piece-image' src={`${baseUrl}${pieces.bottom}/${day}.png`} alt='bottom for forecast' />
-        <img className='forecast__piece-image' src={`${baseUrl}${pieces.jacket}/${day}.png`} alt='jacket for forecast' />
+        <img className='forecast__pieces-image' src={`${baseUrl}${pieces.top}/${day}.png`} alt='top for forecast' />
+        <img className='forecast__pieces-image' src={`${baseUrl}${pieces.bottom}/${day}.png`} alt='bottom for forecast' />
+        <img className='forecast__pieces-image' src={`${baseUrl}${pieces.jacket}/${day}.png`} alt='jacket for forecast' />
       </div>
       {accessories &&
         (<div className='forecast__accessories-container'>
@@ -107,8 +107,11 @@ export const ForecastWeather = ({ dateOffset }) => {
         (<div className='forecast__essentials'>
           <h3 className='forecast__essentials-title'>Pack your little one with:</h3>
           <p className='forecast__essentials-jacket'>{essentials.jacket}</p>
+          <img className='forecast__essentials-image' src={`${baseUrl}${essentials.jacket_image}`} alt='jacket for essential' />
           <p className='forecast__essentials-pants'>{essentials.pants}</p>
+          <img className='forecast__essentials-image' src={`${baseUrl}${essentials.pants_image}`} alt='pants for essential' />
           <p className='forecast__essentials-footwear'>{essentials.footware}</p>
+          <img className='forecast__essentials-image' src={`${baseUrl}${essentials.footware_image}`} alt='footware for essential' />
         </div>)}
       {specials &&
         (<div className='forecast__specials-container'>

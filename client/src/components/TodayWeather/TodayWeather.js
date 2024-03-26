@@ -83,9 +83,9 @@ export const TodayWeather = ({ latitude, longitude, timezoneOffset }) => {
         <img className='today__clothing-image' src={`${baseUrl}/${clothing.image}`} alt='recommendation clothes' />
       </div>
       <div className='today__pieces-container'>
-        <img className='today__piece-image' src={`${baseUrl}${pieces.top}/${day}.png`} alt='top for today' />
-        <img className='today__piece-image' src={`${baseUrl}${pieces.bottom}/${day}.png`} alt='bottom for today' />
-        <img className='today__piece-image' src={`${baseUrl}${pieces.jacket}/${day}.png`} alt='jacket for today' />
+        <img className='today__pieces-image' src={`${baseUrl}${pieces.top}/${day}.png`} alt='top for today' />
+        <img className='today__pieces-image' src={`${baseUrl}${pieces.bottom}/${day}.png`} alt='bottom for today' />
+        <img className='today__pieces-image' src={`${baseUrl}${pieces.jacket}/${day}.png`} alt='jacket for today' />
       </div>
       {accessories &&
         (<div className='today__accessories-container'>
@@ -96,8 +96,11 @@ export const TodayWeather = ({ latitude, longitude, timezoneOffset }) => {
         (<div className='today__essentials'>
           <h3 className='today__essentials-title'>Pack your little one with:</h3>
           <p className='today__essentials-jacket'>{essentials.jacket}</p>
+          <img className='today__essentials-image' src={`${baseUrl}${essentials.jacket_image}`} alt='jacket for essential' />
           <p className='today__essentials-pants'>{essentials.pants}</p>
+          <img className='today__essentials-image' src={`${baseUrl}${essentials.pants_image}`} alt='pants for essential' />
           <p className='today__essentials-footwear'>{essentials.footware}</p>
+          <img className='today__essentials-image' src={`${baseUrl}${essentials.footware_image}`} alt='footware for essential' />
         </div>)}
       {specials &&
         (<div className='today__specials-container'>

@@ -35,9 +35,16 @@
     padding: 1rem;
   }
 
-  &__piece-image {
+  &__pieces-image {
     max-width: 8rem;
-    max-height: rem;
+    max-height: 8rem;
+    width: 8rem;
+    height: 8rem;
+  }
+
+  &__essentials-image {
+    max-width: 8rem;
+    max-height: 8rem;
     width: 8rem;
     height: 8rem;
   }
