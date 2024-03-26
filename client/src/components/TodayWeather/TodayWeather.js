@@ -55,8 +55,6 @@ export const TodayWeather = ({ latitude, longitude, timezoneOffset }) => {
   const today = new Date();
   const day = today.getDay();
 
-  console.log(clothing);
-
   return (
     <div className='today'>
       <div className='today__details'>

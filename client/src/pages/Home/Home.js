@@ -5,6 +5,7 @@ import { LocationAndWeather } from '../../components/LocationAndWeather/Location
 import { Slogan } from '../../components/Slogan/Slogan';
 import { ForwardLink } from '../../components/ForwardLink/ForwardLink';
 import { DateInfo } from '../../components/DateInfo/DateInfo';
+import { getWeekday } from '../../utils/weekday';
 
 export const Home = () => {
   return (
@@ -15,7 +16,7 @@ export const Home = () => {
           <DateInfo className="homepage__info-date" />
           <Clock className='homepage__info-clock' />
         </div>
-        <ForwardLink className="homepage__right-link" link="/tomorrow" heading="Tomorrow" />
+        <ForwardLink className="homepage__right-link" link="/tomorrow" heading={getWeekday(1)} />
         <LocationAndWeather className="homepage__location-weather" />
         <Slogan className="homepage__slogan" />
       </main>
