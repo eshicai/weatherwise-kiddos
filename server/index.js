@@ -3,9 +3,6 @@ const cors = require('cors');
 require('dotenv').config();
 
 const weatherRoutes = require('./routes/weather');
-const weatherSummaryRoutes = require('./routes/weatherSummary');
-const tomorrowRoutes = require('./routes/tomorrow');
-const todayRoutes = require('./routes/today');
 const forecastRoutes = require('./routes/forecast');
 
 const app = express();
@@ -23,9 +20,6 @@ app.use((req, _res, next) => {
 })
 
 app.use('/weather', weatherRoutes);
-app.use('/weathersummary', weatherSummaryRoutes);
-app.use('/tomorrow', tomorrowRoutes);
-app.use('/today', todayRoutes);
 app.use('/forecast', forecastRoutes);
 
 app.listen(port, () => {

@@ -11,8 +11,8 @@ export const TodayWeather = ({ latitude, longitude, timezoneOffset }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
 
-  const endpoint = `weather?lat=${latitude}&lon=${longitude}`;
-  const weatherUrl = `${baseUrl}/${endpoint}&api_key=${apiKey}`;
+  const endpoint = `/weather?lat=${latitude}&lon=${longitude}`;
+  const weatherUrl = `${baseUrl}${endpoint}&api_key=${apiKey}`;
 
   useEffect(() => {
     const fetchWeather = async () => {
