@@ -73,11 +73,11 @@ export const LocationAndWeather = () => {
       ) : null}
       {buttonConfirm && <Location setButtonConfirm={setButtonConfirm} setGetLocation={setGetLocation} />}
 
-      {currentHour < 17 ?
+      {/* {currentHour < 17 ?
         <ForecastWeather dateOffset={dateOffset} />
-        :
+        : */}
         <TodayWeather className='location__weather' latitude={latitude} longitude={longitude} />
-      }
+      {/* } */}
     </div>
   );
 }
