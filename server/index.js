@@ -2,8 +2,8 @@ const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
 
-const weatherRoutes = require('./routes/weather');
-const forecastRoutes = require('./routes/forecast');
+const weatherRoutes = require('./routes/weather-routes');
+const forecastRoutes = require('./routes/forecast-routes');
 
 const app = express();
 const port = process.env.port || process.argv[2] || 8080;
