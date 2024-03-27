@@ -8,18 +8,22 @@ export const LocationAndWeather = ({ isUserLoggedIn }) => {
   // // default location: Toronto
   // const defaultLatitude = 43.64780785016635;
   // const defaultLongitude = -79.39656626973078;
+  // const defaultTimezoneOffset = 240;
 
   // default location: Miami, FL, USA
   const defaultLatitude = 25.7617;
   const defaultLongitude = -80.1918;
+  const defaultTimezoneOffset = 240;
 
   const storedLatitude = sessionStorage.getItem('latitude');
   const storedLongitude = sessionStorage.getItem('longitude');
+  const storedTimezoneOffest = sessionStorage.getItem('timezoneOffset');
   const buttonClicked = sessionStorage.getItem('locationButtonClicked');
 
   const [location, setLocation] = useState(null);
   const [latitude, setLatitude] = useState(storedLatitude || defaultLatitude);
   const [longitude, setLongitude] = useState(storedLongitude || defaultLongitude);
+  const [timezoneOffset, setTimezoneOffset] = useState(storedTimezoneOffest || defaultTimezoneOffset);
   const [showButton, setShowButton] = useState(buttonClicked !== 'true');
   const [buttonConfirm, setButtonConfirm] = useState(false);
   const [getLocation, setGetLocation] = useState(false);
@@ -53,6 +57,7 @@ export const LocationAndWeather = ({ isUserLoggedIn }) => {
 
       const timezoneOffset = (new Date()).getTimezoneOffset();
       sessionStorage.setItem('timezoneOffset', timezoneOffset);
+      setTimezoneOffset(timezoneOffset);
     }
 
     if (getLocation) {
@@ -61,7 +66,7 @@ export const LocationAndWeather = ({ isUserLoggedIn }) => {
     }
   }, ([getLocation]));
 
-  const currentHour = new Date().getHours();
+  const currentHour = new Date().getUTCHours() - timezoneOffset/60;
   const dateOffset = 0;
 
   return (

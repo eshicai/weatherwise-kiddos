@@ -14,6 +14,8 @@ const baseURL = 'https://api.openweathermap.org/data/2.5';
 const getForecastWeather = async (lat, lon, date, clientTimezoneOffset) => {
   try {
     const endpoint = `/forecast/?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+    console.log(`${baseURL}${endpoint}`);
+
     const response = await axios.get(`${baseURL}${endpoint}`);
 
     const forecasts = response.data.list;
@@ -38,15 +40,20 @@ const getForecastWeather = async (lat, lon, date, clientTimezoneOffset) => {
     const nextDayEndhour = endHour + offset - 24; // if offset >= 7, need data from next day in UTC time      
 
     const selectedDate = date.getDate();
+    console.log(clientTimezoneOffset);
+    console.log(offset);
+    console.log(offsetBreakpoint);
+    console.log(nextDayEndhour);
+    console.log(selectedDate);
 
     for (const forecast of forecasts) {
       const forecastTime = new Date(forecast.dt_txt);
 
-      // console.log("$$$$$$$$$$$$$$$$$$$$$");
-      // console.log("forecastTime=" + forecastTime);
-      // console.log("forecastTime.getDate()=" + forecastTime.getDate());
-      // console.log("forecastTime.getHours()=" + forecastTime.getHours());
-      // console.log('\n');
+      console.log("$$$$$$$$$$$$$$$$$$$$$");
+      console.log("forecastTime=" + forecastTime);
+      console.log("forecastTime.getDate()=" + forecastTime.getDate());
+      console.log("forecastTime.getHours()=" + forecastTime.getHours());
+      console.log('\n');
 
       if ((offset < offsetBreakpoint && (
         (forecastTime.getDate() === selectedDate && forecastTime.getHours() >= (8 + offset) && forecastTime.getHours() <= (17 + offset))
