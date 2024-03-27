@@ -64,11 +64,6 @@ button {
   }
 }
 
-.video-icon {
-  color: $primary-color-white;
-  background-color: rgba($secondary-color-darkblack, 0.5);
-}
-
 .scrubbing-icon {
   height: 1rem; // 16px
   color: $primary-color-white;
@@ -81,10 +76,6 @@ button {
 
 .scrubbing-played {
   color: $primary-color-blue;
-}
-
-video {
-  background-color: $secondary-color-darkblack;
 }
 
 label {

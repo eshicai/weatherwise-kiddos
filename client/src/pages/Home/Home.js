@@ -9,15 +9,17 @@ import { DateInfo } from '../../components/DateInfo/DateInfo';
 export const Home = () => {
   return (
     <div className="homepage">
-      <Header />
+      <Header className='homepage__header' />
       <main className='homepage-main'>
-        <div className="homepage__info">
-          <DateInfo className="homepage__info-date" />
-          <Clock className='homepage__info-clock' />
+        <div className="homepage-main__forward-link-container">
+          <ForwardLink className="homepage-main__forward-link" link="/tomorrow" heading='Tomorrow' />
         </div>
-        <ForwardLink className="homepage__right-link" link="/tomorrow" heading='Tomorrow' />
-        <LocationAndWeather className="homepage__location-weather" />
-        <Slogan className="homepage__slogan" />
+        <div className="homepage-main__info">
+          <DateInfo className="homepage-main__info-date" />
+          <Clock className='homepage-main__info-clock' />
+        </div>
+        <LocationAndWeather className="homepage-main__location-weather" />
+        <Slogan className="homepage-main__slogan" />
       </main>
     </div>
   )
