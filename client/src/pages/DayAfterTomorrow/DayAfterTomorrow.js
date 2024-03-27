@@ -21,9 +21,9 @@ export const DayAfterTomorrow = () => {
           <HomeLink link="/" heading="Today" />
           <ForwardLink link="/in_three_days" heading={getWeekday(dateOffset + 1)} />
         </div>
-        <ForecastWeather dateOffset={dateOffset} />
-        <Slogan />
+        <ForecastWeather dateOffset={dateOffset} />        
       </main>
+      <Slogan className="day-after-tomorrow-page__slogan" />
     </div>
   )
 }

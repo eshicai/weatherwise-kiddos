@@ -18,9 +18,9 @@ export const Home = ({ user }) => {
           <DateInfo className="homepage-main__info-date" />
           <Clock className='homepage-main__info-clock' />
         </div>
-        <LocationAndWeather className="homepage-main__location-weather" />
-        <Slogan className="homepage-main__slogan" />
+        <LocationAndWeather className="homepage-main__location-weather" />        
       </main>
+      <Slogan className="homepage__slogan" />
     </div>
   )
 }

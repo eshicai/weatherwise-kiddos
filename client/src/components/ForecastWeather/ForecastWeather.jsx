@@ -70,6 +70,8 @@ export const ForecastWeather = ({ dateOffset }) => {
 
   const day = getDayNumberInWeek(dateOffset);
 
+  console.log(pieces.footware);
+
   return (
     <div className='forecast'>
       <div className="forecast__main">
@@ -108,6 +110,7 @@ export const ForecastWeather = ({ dateOffset }) => {
             <p className='forecast__pieces-jacket'>Jacket: {clothing.jacket}</p>
           </li>)}
         <li className='forecast__pieces-item'>
+          <img className='forecast__pieces-image' src={`${baseUrl}${pieces.footware}.png`} alt='footware for forecast day' />
           <p className='forecast__pieces-footwear'>Shoes: {clothing.footwear}</p>
         </li>
       </ul>

@@ -19,9 +19,9 @@ export const Tomorrow = () => {
           <BackwardLink link="/" heading="Today" />
           <ForwardLink link="/day_after_tomorrow" heading={getWeekday(dateOffset + 1)} />
         </div>
-        <ForecastWeather dateOffset={dateOffset} />
-        <Slogan />
+        <ForecastWeather dateOffset={dateOffset} />        
       </main>
+      <Slogan />
     </div>
   )
 }

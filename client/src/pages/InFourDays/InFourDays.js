@@ -19,9 +19,9 @@ export const InFourDays = () => {
           <BackwardLink link="/in_three_days" heading={getWeekday(dateOffset - 1)} />
           <HomeLink link="/" heading="Today" />
         </div>
-        <ForecastWeather dateOffset={dateOffset} />
-        <Slogan />
+        <ForecastWeather dateOffset={dateOffset} />        
       </main>
+      <Slogan />
     </div>
   )
 }

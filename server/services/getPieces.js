@@ -12,7 +12,8 @@ const getPiecesFromTemperature = async (temperature) => {
       .select(
         'top',
         'bottom',
-        'jacket'
+        'jacket',
+        'footware'
       )
       .first();
 
