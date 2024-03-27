@@ -5,6 +5,15 @@ import Github from "../../assets/icons/github_icon.svg";
 import './Login.scss'
 
 export const Login = ({ user }) => {
+  const baseUrl = process.env.REACT_APP_BASE_URL;
+  const apiKey = process.env.REACT_APP_API_KEY;  
+  const endpoint = `/auth/google`;
+  const authGooglUrl = `${baseUrl}${endpoint}`;
+
+  const google = () => {
+    window.open(authGooglUrl, '_self');
+  }
+
   return (
     <div>
       <Header user={user} />
@@ -12,7 +21,7 @@ export const Login = ({ user }) => {
         <h1 className="loginTitle">Choose a Login Method</h1>
         <div className="wrapper">
           <div className="left">
-            <div className="loginButton google">
+            <div className="loginButton google" onClick={google}>
               <img src={Google} alt="" className="icon" />
               Google
             </div>

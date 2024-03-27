@@ -2,7 +2,7 @@ import './TodayWeather.scss'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-export const TodayWeather = ({ latitude, longitude, timezoneOffset }) => {
+export const TodayWeather = ({ latitude, longitude }) => {
   const baseUrl = process.env.REACT_APP_BASE_URL;
   const apiKey = process.env.REACT_APP_API_KEY;
 

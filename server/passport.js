@@ -1,5 +1,5 @@
 const express = require('express');
-const knex = require('knex');
+const knex = require("knex")(require("./knexfile"));
 const passport = require('passport');
 require('dotenv').config();
 
