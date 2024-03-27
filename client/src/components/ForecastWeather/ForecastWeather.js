@@ -8,8 +8,13 @@ export const ForecastWeather = ({ dateOffset }) => {
   const apiKey = process.env.REACT_APP_API_KEY;
 
   // default location: Toronto
-  const defaultLatitude = 43.64780785016635;
-  const defaultLongitude = -79.39656626973078;
+  // const defaultLatitude = 43.64780785016635;
+  // const defaultLongitude = -79.39656626973078;
+  // const defaultTimezoneOffset = 240;
+
+  // default location: Miami, FL, USA
+  const defaultLatitude = 25.7617;
+  const defaultLongitude = -80.1918;
   const defaultTimezoneOffset = 240;
 
   const latitude = sessionStorage.getItem('latitude') || defaultLatitude;
@@ -86,7 +91,8 @@ export const ForecastWeather = ({ dateOffset }) => {
           <p className='forecast__clothing-description'>{clothing.description}</p>
           <p className='forecast__clothing-top'>Top: {clothing.top}</p>
           <p className='forecast__clothing-bottom'>Bottom: {clothing.bottom}</p>
-          <p className='forecast__clothing-jacket'>Jacket: {clothing.jacket}</p>
+          {clothing.jacket !== 'none' &&
+            (<p className='forecast__clothing-jacket'>Jacket: {clothing.jacket}</p>)}
           <p className='forecast__clothing-footwear'>Shoes: {clothing.footwear}</p>
         </div>
       </div>
@@ -96,7 +102,8 @@ export const ForecastWeather = ({ dateOffset }) => {
       <div className='forecast__pieces-container'>
         <img className='forecast__pieces-image' src={`${baseUrl}${pieces.top}/${day}.png`} alt='top for forecast' />
         <img className='forecast__pieces-image' src={`${baseUrl}${pieces.bottom}/${day}.png`} alt='bottom for forecast' />
-        <img className='forecast__pieces-image' src={`${baseUrl}${pieces.jacket}/${day}.png`} alt='jacket for forecast' />
+        {pieces.jacket !== 'none' &&
+          (<img className='forecast__pieces-image' src={`${baseUrl}${pieces.jacket}/${day}.png`} alt='jacket for forecast' />)}
       </div>
       {accessories &&
         (<div className='forecast__accessories-container'>

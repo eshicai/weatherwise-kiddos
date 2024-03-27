@@ -17,7 +17,7 @@ export const DayAfterTomorrow = () => {
       <main className='main'>
       <DateInfo dateOffset={dateOffset} />
         <div className="day-after-tomorrow-page__heading-container">
-          <BackwardLink link="/tomorrow" heading={getWeekday(dateOffset - 1)} />
+          <BackwardLink link="/tomorrow" heading='Tomorrow' />
           <HomeLink link="/" heading="Today" />
           <ForwardLink link="/in_three_days" heading={getWeekday(dateOffset + 1)} />
         </div>

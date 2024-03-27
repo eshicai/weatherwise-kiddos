@@ -5,9 +5,13 @@ import { ForecastWeather } from '../ForecastWeather/ForecastWeather';
 import { Location } from '../../pages/Location/Location';
 
 export const LocationAndWeather = () => {
-  // default location: Toronto
-  const defaultLatitude = 43.64780785016635;
-  const defaultLongitude = -79.39656626973078;
+  // // default location: Toronto
+  // const defaultLatitude = 43.64780785016635;
+  // const defaultLongitude = -79.39656626973078;
+
+  // default location: Miami, FL, USA
+  const defaultLatitude = 25.7617;
+  const defaultLongitude = -80.1918;  
 
   const storedLatitude = sessionStorage.getItem('latitude');
   const storedLongitude = sessionStorage.getItem('longitude');

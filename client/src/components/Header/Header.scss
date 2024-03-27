@@ -14,6 +14,11 @@
     margin-top: 1rem;
   }
 
+  &__logo {
+    width: 10rem;
+    height: 6rem;
+  }
+
   @include tablet {
     flex-direction: row;
     justify-content: space-between;
@@ -58,5 +63,43 @@
 
   &__image {
     background-color: transparent;
+    cursor: pointer;
   }
+
+  &__button {
+    cursor: pointer;
+  }
+}
+
+.navbar {
+  height: 50px;
+  background-color: purple;
+  color: white;
+  display: flex;
+  align-items: center;  
+  justify-content: space-around;
+}
+
+.logo {
+  font: 20px;
+  font-weight: bold;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.listItem {
+  margin-right: 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.avatar1 {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
 }

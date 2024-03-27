@@ -16,6 +16,10 @@
   &__clothing-image {
     max-width: 20rem;
     max-height: 20rem;
+    -webkit-box-shadow: 3px 8px 15px 5px #000000;
+    box-shadow: 3px 8px 15px 5px #000000;
+    object-fit: cover;
+    margin: 20px 0;
   }
 
   &__details {
@@ -38,6 +42,10 @@
     max-height: 8rem;
     width: 8rem;
     height: 8rem;
+    -webkit-box-shadow: 8px 9px 15px 1px #000000;
+    box-shadow: 8px 9px 15px 1px #000000;
+    object-fit: cover;
+    margin: 20px 0;
   }
 
   &__essentials-image {
@@ -45,5 +53,9 @@
     max-height: 8rem;
     width: 8rem;
     height: 8rem;
+    -webkit-box-shadow: 8px 9px 15px 1px #000000;
+    box-shadow: 8px 9px 15px 1px #000000;
+    object-fit: cover;
+    margin: 20px 0;
   }
 }

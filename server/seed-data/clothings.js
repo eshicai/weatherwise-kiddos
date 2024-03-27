@@ -2,7 +2,7 @@ module.exports = [
   {
     id: 1,
     temperature: 27,
-    image: "/images/girls/girls/girls/girl-1.png",
+    image: "/images/girls/girl-1.png",
     top: "Lightweight, breathable fabrics like cotton or linen short-sleeve shirts or tank tops",
     bottom: "Shorts or lightweight, breathable pants",
     jacket: "none",
@@ -12,7 +12,7 @@ module.exports = [
   {
     id: 2,
     temperature: 24,
-    image: "/images/girls/girls/girl-2.png",
+    image: "/images/girls/girl-2.png",
     top: "T-shirt",
     bottom: "Short or capris",
     jacket: "none",
