@@ -72,35 +72,40 @@ export const ForecastWeather = ({ dateOffset }) => {
 
   return (
     <div className='forecast'>
-      <div className='forecast__basic'>
-        <h3 className='forecast__basic-location'>{city}, {country}</h3>
-        <h3>Between 8AM to 5PM</h3>
-        <p className='forecast__basic-weather'>{weatherSummary.weatherMain}</p>
-        <p className='forecast__description'>{descriptionSummary.weatherDescription}</p>
-        <p className='forecast__description'>{weatherDescription}</p>
-        <p className='forecast__temperature'>Average Temperature: {averageTemperature}°C</p>
-        <p className='forecast__temperature-range'>low {temperatureRange.min}°C  high {temperatureRange.max}°C</p>
-        <p className='forecast__feels-like'>Feels Like: low {feelsLikeRange.min}°C  high {feelsLikeRange.max}°C</p>
-      </div>
-
-      <div className='forecast__clothing'>
-        <img className='forecast__clothing-image' src={`${baseUrl}${clothing.image}`} alt='forecast recommendation clothes' />
-        <p className='forecast__clothing-description'>{clothing.description}</p>
+      <div className="forecast__main">
+        <div className='forecast__clothing'>
+          <img className='forecast__clothing-image' src={`${baseUrl}${clothing.image}`} alt='forecast recommendation clothes' />
+        </div>
+        <div className='forecast__basic'>
+          <h3 className='forecast__basic-location'>{city}, {country}</h3>
+          <h3>Between 8AM to 5PM</h3>
+          <p className='forecast__basic-weather'>{weatherSummary.weatherMain}</p>
+          <p className='forecast__description'>{descriptionSummary.weatherDescription}</p>
+          <p className='forecast__description'>{weatherDescription}</p>
+          <p className='forecast__temperature'>Average Temperature: {averageTemperature}°C</p>
+          <p className='forecast__temperature-range'>low {temperatureRange.min}°C  high {temperatureRange.max}°C</p>
+          <p className='forecast__feels-like'>Feels Like: low {feelsLikeRange.min}°C  high {feelsLikeRange.max}°C</p>
+          <p className='forecast__clothing-description'>{clothing.description}</p>
+          <div className="forecast__clothing-buttons">
+            <button className="forecast__clothing-button hot">Want to dress cooler</button>
+            <button className="forecast__clothing-button cold">Want to dress warmer</button>
+          </div>
+        </div>
       </div>
 
       <ul className='forecast__pieces'>
         <li className='forecast__pieces-item'>
-          <p className='forecast__pieces-top'>Top: {clothing.top}</p>
           <img className='forecast__pieces-image' src={`${baseUrl}${pieces.top}/${day}.png`} alt='top for forecast day' />
+          <p className='forecast__pieces-top'>Top: {clothing.top}</p>
         </li>
         <li className='forecast__pieces-item'>
-          <p className='forecast__pieces-bottom'>Bottom: {clothing.bottom}</p>
           <img className='forecast__pieces-image' src={`${baseUrl}${pieces.bottom}/${day}.png`} alt='bottom for forecast day' />
+          <p className='forecast__pieces-bottom'>Bottom: {clothing.bottom}</p>
         </li>
         {clothing.jacket !== 'none' &&
           (<li className='forecast__pieces-item'>
-            <p className='forecast__pieces-jacket'>Jacket: {clothing.jacket}</p>
             <img className='forecast__pieces-image' src={`${baseUrl}${pieces.jacket}/${day}.png`} alt='jacket for forecast day' />
+            <p className='forecast__pieces-jacket'>Jacket: {clothing.jacket}</p>
           </li>)}
         <li className='forecast__pieces-item'>
           <p className='forecast__pieces-footwear'>Shoes: {clothing.footwear}</p>

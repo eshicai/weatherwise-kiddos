@@ -3,7 +3,7 @@ import logoImg from '../../assets/logo/weatherwisekiddos-logo.png'
 import userAvatar from '../../assets/images/headshort.png'
 import { Link } from 'react-router-dom';
 
-export const Header = () => {
+export const Header = ({ user }) => {
   return (
     // <header className='header'>
     //   <div className='header__logo-container'>
@@ -29,14 +29,20 @@ export const Header = () => {
     // </header>
 
     <div className='navbar'>
-      <span className='logo'>Weather Wise</span>
-      <ul className='list'>
-        <li className='listItem'>
-          <img src={userAvatar} alt='' className='avatar1'></img>
-        </li>
-        <li className='listItem'>John Doe</li>
-        <li className='listItem'>Logout</li>
-      </ul>
+      <span className='logo'>
+        <Link className='link' to='/'>Weather Wise</Link>
+      </span> {
+        user ? (
+          <ul className='list'>
+            <li className='listItem'>
+              <img src={userAvatar} alt='' className='avatar1'></img>
+            </li>
+            <li className='listItem'>John Doe</li>
+            <li className='listItem'>Logout</li>
+          </ul>
+        ) : (<Link className='link' to='login'>Login</Link>)
+      }
+
     </div>
   )
 }

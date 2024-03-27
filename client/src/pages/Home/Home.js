@@ -6,10 +6,10 @@ import { Slogan } from '../../components/Slogan/Slogan';
 import { ForwardLink } from '../../components/ForwardLink/ForwardLink';
 import { DateInfo } from '../../components/DateInfo/DateInfo';
 
-export const Home = () => {
+export const Home = ({ user }) => {
   return (
     <div className="homepage">
-      <Header className='homepage__header' />
+      <Header className='homepage__header' user={user} />
       <main className='homepage-main'>
         <div className="homepage-main__forward-link-container">
           <ForwardLink className="homepage-main__forward-link" link="/tomorrow" heading='Tomorrow' />

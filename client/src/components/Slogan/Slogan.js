@@ -1,9 +1,12 @@
 import './Slogan.scss'
+import sloganImg from '../../assets/images/apr1.png';
 
 export const Slogan = () => {
   return (
-    <>
-      <h3>Dress your little ones in style, rain or shine, with WeatherWise Kiddos!</h3>
-    </>
+    <div className='slogan'> 
+    <p className='slogan__image-description'>"April hath put a spirit of youth in everything." - William Shakespeare</p>    
+      <img className='slogan__image' src={sloganImg} alt='month'></img>
+      <h1 className='slogan__content'>Dress your little ones in style, rain or shine, with WeatherWise Kiddos!</h1>
+    </div>
   )
 }

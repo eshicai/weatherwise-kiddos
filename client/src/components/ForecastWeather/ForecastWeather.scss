@@ -4,6 +4,7 @@
 
 .forecast {
   margin-top: 1rem;
+  padding: 2.25rem;
 
   @include tablet {
     margin-top: 2.25rem;
@@ -12,49 +13,62 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #d4f1f4;
+
+  &__main {
+    display: flex;
+    flex-direction: row;
+    padding-top: 1rem;
+    padding-bottom: 2.25rem;
+    justify-content: space-around;
+  }
 
   &__basic {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2.25rem;
-  }
-
-  &__clothings {
-    display: flex;
     flex-direction: column;
+    width: 40%;
+    -webkit-box-shadow: 3px 8px 15px 5px #000000;
+    box-shadow: 3px 8px 15px 5px #000000;
+    border-radius: 20px;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   &__clothing {
     display: flex;
     flex-direction: column;
     align-items: center;
-    // -webkit-box-shadow: 5px 6px 23px -1px #000000;
-    // box-shadow: 5px 6px 23px -1px #000000;
+    width: 40%;
+    -webkit-box-shadow: 3px 8px 15px 5px #000000;
+    box-shadow: 3px 8px 15px 5px #000000;
+    border-radius: 20px;
 
     &-image {
-      max-width: 80%;
-      max-height: 50%;
-      -webkit-box-shadow: 3px 8px 15px 5px #000000;
-      box-shadow: 3px 8px 15px 5px #000000;
+      width: 100%;      
       object-fit: cover;
-      margin: 20px 0;
+    }
+
+    &-buttons {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
     }
   }
 
   &__pieces {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;    
+    justify-content: space-between;
     list-style: none;
+    flex-wrap: wrap;
+
+    &-item {
+      width: 25%;
+    }
 
     &-image {
       max-width: 8rem;
       max-height: 8rem;
-      width: 8rem;
-      height: 8rem;
+      width: 100%;
       -webkit-box-shadow: 8px 9px 15px 1px #000000;
       box-shadow: 8px 9px 15px 1px #000000;
       object-fit: cover;
@@ -71,7 +85,7 @@
   &__essentials {
     display: flex;
     flex-direction: column;
-    align-items: center;    
+    align-items: center;
 
     &-items {
       display: flex;
