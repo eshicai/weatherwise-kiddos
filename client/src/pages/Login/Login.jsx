@@ -4,19 +4,19 @@ import Facebook from "../../assets/icons/facebook_icon.svg";
 import Github from "../../assets/icons/github_icon.svg";
 import './Login.scss'
 
-export const Login = ({ user }) => {
+export const Login = ({ isUserLoggedIn, setIsUserLoggedIn }) => {
   const baseUrl = process.env.REACT_APP_BASE_URL;
   const apiKey = process.env.REACT_APP_API_KEY;  
   const endpoint = `/auth/google`;
   const authGooglUrl = `${baseUrl}${endpoint}`;
 
   const google = () => {
-    window.open(authGooglUrl, '_self');
+    setIsUserLoggedIn(true);
   }
 
   return (
     <div>
-      <Header user={user} />
+      <Header isUserLoggedIn={isUserLoggedIn} />
       <div className="login">
         <h1 className="loginTitle">Choose a Login Method</h1>
         <div className="wrapper">

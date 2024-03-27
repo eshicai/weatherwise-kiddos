@@ -14,31 +14,32 @@ passport.use(
     },
     function (accessToken, refreshToken, profile, done) {
       console.log('Google profile:', profile);
-
-      knex('users')
-        .select('id')
-        .where({ gogole_id: profile.id })
-        .then(user => {
-          if (user.length) {
-            done(null, user[0]);
-          } else {
-            knex('user')
-              .insert({
-                google_id: profile.id,
-                avatar_url: profile.photos[0],
-                username: profile.displayName
-              })
-              .then(userId => {
-                done(null, { id: userId[0] });
-              })
-              .catch(err => {
-                console.log('Error creating a user', err);
-              });
-          }
-        })
-        .catch(err => {
-          console.log('Error fetching a user', err);
-        });
+      done(null, profile);
+      // knex('users')
+      //   .select('id')
+      //   .where({ google_id: profile.id })
+      //   .then(user => {
+      //     if (user.length) {
+      //       done(null, user[0]);
+      //     } else {
+      //       knex('users')
+      //         .insert({
+      //           google_id: profile.id,
+      //           avatar_url: profile.photos[0],
+      //           username: profile.displayName
+      //         })
+      //         .then(userId => {
+      //           done(null, { id: userId[0] });
+      //           //done(null, profile);
+      //         })
+      //         .catch(err => {
+      //           console.log('Error creating a user', err);
+      //         });
+      //     }
+      //   })
+      //   .catch(err => {
+      //     console.log('Error fetching a user', err);
+      //   });
     }
   )
 );
@@ -51,10 +52,16 @@ passport.serializeUser((user, done) => {
 
   // Store only the user id in session
   done(null, user.id);
+  //done(null, user);
 });
 
 // `deserializeUser` receives a value sent from `serializeUser` `done` function
 // We can then retrieve full user information from our database using the userId
+
+// passport.deserializeUser((user, done) => {
+//   done(null, user);
+// });
+
 passport.deserializeUser((userId, done) => {
   console.log('deserializeUser (user id):', userId);
 

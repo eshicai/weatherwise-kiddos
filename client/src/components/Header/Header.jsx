@@ -1,10 +1,11 @@
 import './Header.scss';
 import logoImg from '../../assets/logo/weatherwisekiddos-logo.png'
 import userAvatar from '../../assets/images/headshort.png'
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
+import { Logout } from '../../pages/Logout/Logout';
 
-export const Header = ({ user }) => {
-  console.log(user);
+export const Header = ({ isUserLoggedIn, setIsUserLoggedIn }) => {
+  console.log(isUserLoggedIn);
 
   return (
     // <header className='header'>
@@ -34,13 +35,16 @@ export const Header = ({ user }) => {
       <span className='logo'>
         <Link className='link' to='/'>Weather Wise</Link>
       </span> {
-        user ? (
+        isUserLoggedIn ? (
           <ul className='list'>
             <li className='listItem'>
               <img src={userAvatar} alt='' className='avatar1'></img>
             </li>
             <li className='listItem'>John Doe</li>
-            <li className='listItem'>Logout</li>
+            <li className='listItem'>
+            <Link className='link' to='logout' isUserLoggedIn={isUserLoggedIn} setIsUserLoggedIn={setIsUserLoggedIn}>Logout</Link>
+              {/* <Logout isUserLoggedIn={isUserLoggedIn} setIsUserLoggedIn={setIsUserLoggedIn} /> */}
+            </li>
           </ul>
         ) : (<Link className='link' to='login'>Login</Link>)
       }

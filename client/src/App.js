@@ -6,27 +6,31 @@ import { InThreeDays } from './pages/InThreeDays/InThreeDays.js';
 import { InFourDays } from './pages/InFourDays/InFourDays.js';
 import { NotFound } from './pages/NotFound/NotFound.js';
 import { Login } from './pages/Login/Login.jsx';
+import { Logout } from './pages/Logout/Logout.jsx';
 import { Feedback } from './pages/Feedback/Feedback.jsx';
+import { useState } from 'react';
 
 function App() {
-  const user = false;
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
 
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<Home user={user} />} />
+          <Route path='/' element={<Home isUserLoggedIn={isUserLoggedIn} setIsUserLoggedIn={setIsUserLoggedIn} />} />
           <Route path='/tomorrow' element={<Tomorrow />} />
           <Route path='/day_after_tomorrow' element={<DayAfterTomorrow />} />
           <Route path='/in_three_days' element={<InThreeDays />} />
-          <Route path='/in_four_days' element={<InFourDays />} />
-
-          {/* <Route path='/login' element={<Login />} /> */}
+          <Route path='/in_four_days' element={<InFourDays />} />          
           <Route
             path='/login'
-            element={user ? <Navigate to='/' /> : <Login user={user} />} />
+            element={isUserLoggedIn ? <Navigate to='/' /> : <Login isUserLoggedIn={isUserLoggedIn} setIsUserLoggedIn={setIsUserLoggedIn} />} />
+          
+          <Route
+            path='/logout'
+            element={isUserLoggedIn ? <Logout isUserLoggedIn={isUserLoggedIn} setIsUserLoggedIn={setIsUserLoggedIn} /> : <Navigate to='/' /> } />
 
-          <Route path='/feedback/:id' element={user ? <Feedback user={user} /> : <Navigate to='/login' />} />
+          <Route path='/feedback/:id' element={isUserLoggedIn ? <Feedback isUserLoggedIn={isUserLoggedIn} /> : <Navigate to='/login' />} />
 
           <Route path='*' element={<NotFound />} />
         </Routes>

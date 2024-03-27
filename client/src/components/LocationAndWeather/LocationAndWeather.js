@@ -4,14 +4,14 @@ import { TodayWeather } from '../TodayWeather/TodayWeather';
 import { ForecastWeather } from '../ForecastWeather/ForecastWeather';
 import { Location } from '../../pages/Location/Location';
 
-export const LocationAndWeather = () => {
+export const LocationAndWeather = ({ isUserLoggedIn }) => {
   // // default location: Toronto
   // const defaultLatitude = 43.64780785016635;
   // const defaultLongitude = -79.39656626973078;
 
   // default location: Miami, FL, USA
   const defaultLatitude = 25.7617;
-  const defaultLongitude = -80.1918;  
+  const defaultLongitude = -80.1918;
 
   const storedLatitude = sessionStorage.getItem('latitude');
   const storedLongitude = sessionStorage.getItem('longitude');
@@ -74,7 +74,7 @@ export const LocationAndWeather = () => {
       {buttonConfirm && <Location setButtonConfirm={setButtonConfirm} setGetLocation={setGetLocation} />}
 
       {currentHour < 17 ?
-        <ForecastWeather dateOffset={dateOffset} />
+        <ForecastWeather dateOffset={dateOffset} isUserLoggedIn={isUserLoggedIn} />
         :
         <TodayWeather className='location__weather' latitude={latitude} longitude={longitude} />
       }

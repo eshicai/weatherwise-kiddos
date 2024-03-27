@@ -4,7 +4,9 @@ import axios from 'axios';
 import { getDayNumberInWeek } from '../../utils/date';
 import { Link } from 'react-router-dom';
 
-export const ForecastWeather = ({ dateOffset }) => {
+export const ForecastWeather = ({ dateOffset, isUserLoggedIn }) => {
+  console.log(isUserLoggedIn);
+
   const baseUrl = process.env.REACT_APP_BASE_URL;
   const apiKey = process.env.REACT_APP_API_KEY;
 
@@ -28,6 +30,8 @@ export const ForecastWeather = ({ dateOffset }) => {
 
   const endpoint = `/forecast?lat=${latitude}&lon=${longitude}&dateOffset=${dateOffset}&timezoneOffset=${timezoneOffset}&api_key=${apiKey}`;
   const forecastUrl = `${baseUrl}${endpoint}`;
+
+  console.log(forecastUrl);
 
   useEffect(() => {
     const fetchForecast = async () => {
@@ -71,6 +75,8 @@ export const ForecastWeather = ({ dateOffset }) => {
 
   const day = getDayNumberInWeek(dateOffset);
 
+  console.log(clothing);
+
   return (
     <div className='forecast'>
       <div className="forecast__main">
@@ -87,13 +93,13 @@ export const ForecastWeather = ({ dateOffset }) => {
           <p className='forecast__temperature-range'>low {temperatureRange.min}°C  high {temperatureRange.max}°C</p>
           <p className='forecast__feels-like'>Feels Like: low {feelsLikeRange.min}°C  high {feelsLikeRange.max}°C</p>
           <p className='forecast__clothing-description'>{clothing.description}</p>
-          <div className="forecast__clothing-buttons">
+          {isUserLoggedIn && (<div className="forecast__clothing-buttons">
             <button className="forecast__clothing-button">
               <Link className='forecast__clothing-link' to='/feedback/2'>
                 Provide feedback on the comfort level of the attire: whether it's too warm or too chilly
               </Link>
             </button>
-          </div>
+          </div>)}
         </div>
       </div>
 
