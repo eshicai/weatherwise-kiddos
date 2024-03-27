@@ -84,6 +84,7 @@ export const TodayWeather = ({ latitude, longitude, timezoneOffset }) => {
               <img className='today__pieces-image' src={`${baseUrl}${pieces.jacket}/${day}.png`} alt='jacket for today' />
             </li>)}
           <li className='today__pieces-item'>
+            <img className='forecast__pieces-image' src={`${baseUrl}${pieces.footware}.png`} alt='footware for today' />
             <p className='today__pieces-footwear'>Shoes: {clothing.footwear}</p>
           </li>
         </ul>

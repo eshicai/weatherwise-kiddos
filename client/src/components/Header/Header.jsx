@@ -4,6 +4,8 @@ import userAvatar from '../../assets/images/headshort.png'
 import { Link } from 'react-router-dom';
 
 export const Header = ({ user }) => {
+  console.log(user);
+
   return (
     // <header className='header'>
     //   <div className='header__logo-container'>

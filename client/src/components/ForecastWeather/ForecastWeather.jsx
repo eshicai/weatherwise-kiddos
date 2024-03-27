@@ -2,6 +2,7 @@ import './ForecastWeather.scss'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { getDayNumberInWeek } from '../../utils/date';
+import { Link } from 'react-router-dom';
 
 export const ForecastWeather = ({ dateOffset }) => {
   const baseUrl = process.env.REACT_APP_BASE_URL;
@@ -70,8 +71,6 @@ export const ForecastWeather = ({ dateOffset }) => {
 
   const day = getDayNumberInWeek(dateOffset);
 
-  console.log(pieces.footware);
-
   return (
     <div className='forecast'>
       <div className="forecast__main">
@@ -89,8 +88,11 @@ export const ForecastWeather = ({ dateOffset }) => {
           <p className='forecast__feels-like'>Feels Like: low {feelsLikeRange.min}°C  high {feelsLikeRange.max}°C</p>
           <p className='forecast__clothing-description'>{clothing.description}</p>
           <div className="forecast__clothing-buttons">
-            <button className="forecast__clothing-button hot">Want to dress cooler</button>
-            <button className="forecast__clothing-button cold">Want to dress warmer</button>
+            <button className="forecast__clothing-button">
+              <Link className='forecast__clothing-link' to='/feedback/2'>
+                Provide feedback on the comfort level of the attire: whether it's too warm or too chilly
+              </Link>
+            </button>
           </div>
         </div>
       </div>

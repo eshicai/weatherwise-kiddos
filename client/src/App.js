@@ -6,6 +6,7 @@ import { InThreeDays } from './pages/InThreeDays/InThreeDays.js';
 import { InFourDays } from './pages/InFourDays/InFourDays.js';
 import { NotFound } from './pages/NotFound/NotFound.js';
 import { Login } from './pages/Login/Login.jsx';
+import { Feedback } from './pages/Feedback/Feedback.jsx';
 
 function App() {
   const user = true;
@@ -24,6 +25,8 @@ function App() {
           <Route
             path='/login'
             element={user ? <Navigate to='/' /> : <Login user={user} />} />
+
+          <Route path='/feedback/:id' element={user ? <Feedback user={user} /> : <Navigate to='/login' />} />
 
           <Route path='*' element={<NotFound />} />
         </Routes>
