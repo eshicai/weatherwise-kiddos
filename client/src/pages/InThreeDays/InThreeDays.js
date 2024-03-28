@@ -20,7 +20,6 @@ export const InThreeDays = () => {
         <ul className="in-three-days-page__heading-container">
           <li className='in-three-days-page__heading-item'><BackwardLink link="/day_after_tomorrow" heading={getWeekday(2)} /></li>          
           <li className='in-three-days-page__heading-item'><HomeLink link="/" heading="Today" /></li>
-          <li className='in-three-days-page__heading-item'><ForwardLink link="/in_four_days" heading={getWeekday(4)} /></li>
         </ul>
         <ForecastWeather className="in-three-days-page__forecast-weather" dateOffset={dateOffset} />
       </main>
