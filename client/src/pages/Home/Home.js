@@ -6,10 +6,10 @@ import { Slogan } from '../../components/Slogan/Slogan';
 import { ForwardLink } from '../../components/ForwardLink/ForwardLink';
 import { DateInfo } from '../../components/DateInfo/DateInfo';
 
-export const Home = ({ isUserLoggedIn, setIsUserLoggedIn }) => {
+export const Home = () => {
   return (
     <div className="homepage">
-      <Header className='homepage__header' isUserLoggedIn={isUserLoggedIn} setIsUserLoggedIn={setIsUserLoggedIn} />
+      <Header className='homepage__header' />
       <main className='homepage-main'>
         <div className="homepage-main__forward-link-container">
           <ForwardLink className="homepage-main__forward-link" link="/tomorrow" heading='Tomorrow' />
@@ -18,7 +18,7 @@ export const Home = ({ isUserLoggedIn, setIsUserLoggedIn }) => {
           <DateInfo className="homepage-main__info-date" />
           <Clock className='homepage-main__info-clock' />
         </div>
-        <LocationAndWeather className="homepage-main__location-weather" isUserLoggedIn={isUserLoggedIn} />
+        <LocationAndWeather className="homepage-main__location-weather" />
       </main>
       <Slogan className="homepage__slogan" />
     </div>

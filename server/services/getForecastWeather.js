@@ -40,20 +40,9 @@ const getForecastWeather = async (lat, lon, date, clientTimezoneOffset) => {
     const nextDayEndhour = endHour + offset - 24; // if offset >= 7, need data from next day in UTC time      
 
     const selectedDate = date.getDate();
-    console.log(clientTimezoneOffset);
-    console.log(offset);
-    console.log(offsetBreakpoint);
-    console.log(nextDayEndhour);
-    console.log(selectedDate);
 
     for (const forecast of forecasts) {
       const forecastTime = new Date(forecast.dt_txt);
-
-      console.log("$$$$$$$$$$$$$$$$$$$$$");
-      console.log("forecastTime=" + forecastTime);
-      console.log("forecastTime.getDate()=" + forecastTime.getDate());
-      console.log("forecastTime.getHours()=" + forecastTime.getHours());
-      console.log('\n');
 
       if ((offset < offsetBreakpoint && (
         (forecastTime.getDate() === selectedDate && forecastTime.getHours() >= (8 + offset) && forecastTime.getHours() <= (17 + offset))

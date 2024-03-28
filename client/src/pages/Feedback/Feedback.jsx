@@ -4,11 +4,11 @@ import { Slogan } from '../../components/Slogan/Slogan';
 import { BackwardLink } from '../../components/BackwardLink/BackwardLink';
 import { FeedbackForm } from '../../components/FeedbackForm/FeedbackForm';
 
-export const Feedback = ({ user }) => {
+export const Feedback = () => {
 
   return (
     <div className="feedback">
-      <Header className='feedback__header' user={user} />
+      <Header className='feedback__header' />
       <main className='feedback-main'>
         <div className="feedback-main__backward-link-container">
           <BackwardLink className="feedback-main__backward-link" link="/" heading='Today' />

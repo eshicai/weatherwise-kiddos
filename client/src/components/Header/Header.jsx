@@ -4,8 +4,8 @@ import userAvatar from '../../assets/images/headshort.png'
 import { Link, Navigate } from 'react-router-dom';
 import { Logout } from '../../pages/Logout/Logout';
 
-export const Header = ({ isUserLoggedIn, setIsUserLoggedIn }) => {
-  console.log(isUserLoggedIn);
+export const Header = () => {
+  const user = sessionStorage.getItem('user');
 
   return (
     // <header className='header'>
@@ -33,22 +33,20 @@ export const Header = ({ isUserLoggedIn, setIsUserLoggedIn }) => {
 
     <div className='navbar'>
       <span className='logo'>
-        <Link className='link' to='/'>Weather Wise</Link>
+        <Link className='link' to='/'>WeatherWise Kiddos</Link>
       </span> {
-        isUserLoggedIn ? (
+        user ? (
           <ul className='list'>
             <li className='listItem'>
               <img src={userAvatar} alt='' className='avatar1'></img>
             </li>
             <li className='listItem'>John Doe</li>
             <li className='listItem'>
-            <Link className='link' to='logout' isUserLoggedIn={isUserLoggedIn} setIsUserLoggedIn={setIsUserLoggedIn}>Logout</Link>
-              {/* <Logout isUserLoggedIn={isUserLoggedIn} setIsUserLoggedIn={setIsUserLoggedIn} /> */}
+              <Link className='link' to='/logout'>Logout</Link>
             </li>
           </ul>
-        ) : (<Link className='link' to='login'>Login</Link>)
+        ) : (<Link className='link' to='/login'>Login</Link>)
       }
-
     </div>
   )
 }

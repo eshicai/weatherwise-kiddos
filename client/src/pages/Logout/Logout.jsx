@@ -1,9 +1,9 @@
 import './Logout.scss'
 import closeX from "../../assets/icons/close-24px.svg";
 
-export const Logout = ({ isUserLoggedIn, setIsUserLoggedIn }) => {
+export const Logout = () => {
   const handleLogoutClick = () => {
-    setIsUserLoggedIn(false);
+    sessionStorage.setItem('user', false);
   }
 
   return (

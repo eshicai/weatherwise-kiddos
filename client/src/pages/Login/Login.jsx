@@ -4,32 +4,33 @@ import Facebook from "../../assets/icons/facebook_icon.svg";
 import Github from "../../assets/icons/github_icon.svg";
 import './Login.scss'
 
-export const Login = ({ isUserLoggedIn, setIsUserLoggedIn }) => {
+export const Login = () => {
   const baseUrl = process.env.REACT_APP_BASE_URL;
   const apiKey = process.env.REACT_APP_API_KEY;  
   const endpoint = `/auth/google`;
   const authGooglUrl = `${baseUrl}${endpoint}`;
 
-  const google = () => {
-    setIsUserLoggedIn(true);
+  const handleLoginClick = () => {
+    sessionStorage.setItem('user', true);
+    
   }
 
   return (
     <div>
-      <Header isUserLoggedIn={isUserLoggedIn} />
+      <Header />
       <div className="login">
         <h1 className="loginTitle">Choose a Login Method</h1>
         <div className="wrapper">
           <div className="left">
-            <div className="loginButton google" onClick={google}>
+            <div className="loginButton google" onClick={handleLoginClick}>
               <img src={Google} alt="" className="icon" />
               Google
             </div>
-            <div className="loginButton facebook">
+            <div className="loginButton facebook" onClick={handleLoginClick}>
               <img src={Facebook} alt="" className="icon" />
               Facebook
             </div>
-            <div className="loginButton github">
+            <div className="loginButton github" onClick={handleLoginClick}>
               <img src={Github} alt="" className="icon" />
               Github
             </div>

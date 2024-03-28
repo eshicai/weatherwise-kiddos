@@ -3,8 +3,10 @@ import React, { useEffect, useState } from 'react';
 import { TodayWeather } from '../TodayWeather/TodayWeather';
 import { ForecastWeather } from '../ForecastWeather/ForecastWeather';
 import { Location } from '../../pages/Location/Location';
+import { isStillToday } from '../../utils/dateOffset';
+import { getDateOffset } from '../../utils/dateOffset';
 
-export const LocationAndWeather = ({ isUserLoggedIn }) => {
+export const LocationAndWeather = () => {
   // // default location: Toronto
   // const defaultLatitude = 43.64780785016635;
   // const defaultLongitude = -79.39656626973078;
@@ -27,6 +29,8 @@ export const LocationAndWeather = ({ isUserLoggedIn }) => {
   const [showButton, setShowButton] = useState(buttonClicked !== 'true');
   const [buttonConfirm, setButtonConfirm] = useState(false);
   const [getLocation, setGetLocation] = useState(false);
+
+  sessionStorage.setItem('timezoneOffset', timezoneOffset);
 
   const handleLocationClick = () => {
     setButtonConfirm(true);
@@ -66,8 +70,8 @@ export const LocationAndWeather = ({ isUserLoggedIn }) => {
     }
   }, ([getLocation]));
 
-  const currentHour = new Date().getUTCHours() - timezoneOffset/60;
-  const dateOffset = 0;
+  const today = isStillToday();
+  const dateOffset = getDateOffset();
 
   return (
     <div className='location'>
@@ -78,10 +82,10 @@ export const LocationAndWeather = ({ isUserLoggedIn }) => {
       ) : null}
       {buttonConfirm && <Location setButtonConfirm={setButtonConfirm} setGetLocation={setGetLocation} />}
 
-      {currentHour < 17 ?
-        <ForecastWeather dateOffset={dateOffset} isUserLoggedIn={isUserLoggedIn} />
-        :
+      {today ?
         <TodayWeather className='location__weather' latitude={latitude} longitude={longitude} />
+        :
+        <ForecastWeather dateOffset={dateOffset} />
       }
     </div>
   );

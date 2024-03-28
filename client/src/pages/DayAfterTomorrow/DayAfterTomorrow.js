@@ -7,21 +7,22 @@ import { ForwardLink } from '../../components/ForwardLink/ForwardLink';
 import { HomeLink } from '../../components/HomeLink/HomeLink';
 import { DateInfo } from '../../components/DateInfo/DateInfo';
 import { getWeekday } from '../../utils/weekday';
+import { getDateOffset } from '../../utils/dateOffset';
 
 export const DayAfterTomorrow = () => {
-  const dateOffset = 2;
+  const dateOffset = getDateOffset(2);
 
   return (
     <div className="day-after-tomorrow-page">
       <Header />
       <main className='main'>
-      <DateInfo dateOffset={dateOffset} />
+        <DateInfo dateOffset={dateOffset} />
         <div className="day-after-tomorrow-page__heading-container">
           <BackwardLink link="/tomorrow" heading='Tomorrow' />
           <HomeLink link="/" heading="Today" />
           <ForwardLink link="/in_three_days" heading={getWeekday(dateOffset + 1)} />
         </div>
-        <ForecastWeather dateOffset={dateOffset} />        
+        <ForecastWeather dateOffset={dateOffset} />
       </main>
       <Slogan className="day-after-tomorrow-page__slogan" />
     </div>

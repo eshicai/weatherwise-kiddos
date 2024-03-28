@@ -6,9 +6,10 @@ import { BackwardLink } from '../../components/BackwardLink/BackwardLink';
 import { ForwardLink } from '../../components/ForwardLink/ForwardLink';
 import { DateInfo } from '../../components/DateInfo/DateInfo';
 import { getWeekday } from '../../utils/weekday';
+import { getDateOffset } from '../../utils/dateOffset';
 
 export const Tomorrow = () => {
-  const dateOffset = 1;
+  const dateOffset = getDateOffset(1);
 
   return (
     <div className="tomorrow-page">
@@ -19,7 +20,7 @@ export const Tomorrow = () => {
           <BackwardLink link="/" heading="Today" />
           <ForwardLink link="/day_after_tomorrow" heading={getWeekday(dateOffset + 1)} />
         </div>
-        <ForecastWeather dateOffset={dateOffset} />        
+        <ForecastWeather dateOffset={dateOffset} />
       </main>
       <Slogan />
     </div>
