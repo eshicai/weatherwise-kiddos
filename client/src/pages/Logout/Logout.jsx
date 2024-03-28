@@ -3,7 +3,9 @@ import closeX from "../../assets/icons/close-24px.svg";
 
 export const Logout = () => {
   const handleLogoutClick = () => {
-    sessionStorage.setItem('user', false);
+    //sessionStorage.setItem('user', false);
+    sessionStorage.removeItem('user');
+    window.location.href = "/";
   }
 
   return (

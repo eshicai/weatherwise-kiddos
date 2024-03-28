@@ -3,12 +3,34 @@ import logoImg from '../../assets/logo/weatherwisekiddos-logo.png'
 import userAvatar from '../../assets/images/headshort.png'
 import { Link, Navigate } from 'react-router-dom';
 import { Logout } from '../../pages/Logout/Logout';
+import { useState, useEffect } from 'react';
 
 export const Header = () => {
-  const user = sessionStorage.getItem('user');
+  const user = sessionStorage.getItem('user')
 
   return (
-    // <header className='header'>
+    <div className='navbar'>
+      <span className='logo'>
+        <Link className='link' to='/'>WeatherWise Kiddos</Link>
+      </span> {
+        user ? (
+          <ul className='list'>
+            <li className='listItem'>
+              <img src={userAvatar} alt='' className='avatar1'></img>
+            </li>
+            <li className='listItem'>John Doe</li>
+            <li className='listItem'>
+              <Link className='link' to='/logout'>Logout</Link>
+            </li>
+          </ul>
+        ) : (<Link className='link' to='/login'>Login</Link>)
+      }
+    </div>
+  )
+}
+
+
+        // <header className='header'>
     //   <div className='header__logo-container'>
     //     <Link to='/'>
     //       <img className='header__logo logo' src={logoImg} alt='WeatherWise kiddos logo'></img>
@@ -30,23 +52,3 @@ export const Header = () => {
     //     </div>
     //   </div>
     // </header>
-
-    <div className='navbar'>
-      <span className='logo'>
-        <Link className='link' to='/'>WeatherWise Kiddos</Link>
-      </span> {
-        user ? (
-          <ul className='list'>
-            <li className='listItem'>
-              <img src={userAvatar} alt='' className='avatar1'></img>
-            </li>
-            <li className='listItem'>John Doe</li>
-            <li className='listItem'>
-              <Link className='link' to='/logout'>Logout</Link>
-            </li>
-          </ul>
-        ) : (<Link className='link' to='/login'>Login</Link>)
-      }
-    </div>
-  )
-}

@@ -16,11 +16,11 @@ export const DayAfterTomorrow = () => {
     <div className="day-after-tomorrow-page">
       <Header />
       <main className='main'>
-        <DateInfo dateOffset={dateOffset} />
+        <DateInfo dateOffset={2} />
         <div className="day-after-tomorrow-page__heading-container">
           <BackwardLink link="/tomorrow" heading='Tomorrow' />
           <HomeLink link="/" heading="Today" />
-          <ForwardLink link="/in_three_days" heading={getWeekday(dateOffset + 1)} />
+          <ForwardLink link="/in_three_days" heading={getWeekday(3)} />
         </div>
         <ForecastWeather dateOffset={dateOffset} />
       </main>

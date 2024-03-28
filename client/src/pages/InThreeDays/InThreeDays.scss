@@ -1,7 +1,13 @@
+.in-three-days-page__main {
+  display: flex;
+  flex-direction: column;
+}
+
 .in-three-days-page__heading-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   white-space: nowrap;
   gap: 3rem;
+  list-style: none;
 }

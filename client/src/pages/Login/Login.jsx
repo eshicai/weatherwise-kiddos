@@ -5,14 +5,9 @@ import Github from "../../assets/icons/github_icon.svg";
 import './Login.scss'
 
 export const Login = () => {
-  const baseUrl = process.env.REACT_APP_BASE_URL;
-  const apiKey = process.env.REACT_APP_API_KEY;  
-  const endpoint = `/auth/google`;
-  const authGooglUrl = `${baseUrl}${endpoint}`;
-
   const handleLoginClick = () => {
     sessionStorage.setItem('user', true);
-    
+    window.location.href = "/";
   }
 
   return (
@@ -41,8 +36,8 @@ export const Login = () => {
           </div>
           <div className="right">
             <input type="text" placeholder="Username" />
-            <input type="text" placeholder="Password" />
-            <button className="submit">Login</button>
+            <input type="password" placeholder="Password" />
+            <button className="submit loginButton github" onClick={handleLoginClick}>Login</button>
           </div>
         </div>
       </div>

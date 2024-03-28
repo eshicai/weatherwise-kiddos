@@ -6,7 +6,8 @@ export const DateInfo = ({ dateOffset = 0 }) => {
 
   return (
     <div>
-      <h3>{targetDate.toDateString()}, {weekday[targetDate.getDay()]}</h3>
+      {/* <h3>{targetDate.toDateString()}, {weekday[targetDate.getDay()]}</h3> */}
+      <h3>{targetDate.toDateString()}</h3>
     </div>
   );
 };

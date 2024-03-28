@@ -4,6 +4,7 @@ import { ForecastWeather } from '../../components/ForecastWeather/ForecastWeathe
 import { Slogan } from '../../components/Slogan/Slogan';
 import { BackwardLink } from '../../components/BackwardLink/BackwardLink';
 import { ForwardLink } from '../../components/ForwardLink/ForwardLink';
+import { HomeLink } from '../../components/HomeLink/HomeLink';
 import { DateInfo } from '../../components/DateInfo/DateInfo';
 import { getWeekday } from '../../utils/weekday';
 import { getDateOffset } from '../../utils/dateOffset';
@@ -13,16 +14,20 @@ export const Tomorrow = () => {
 
   return (
     <div className="tomorrow-page">
-      <Header />
-      <main className='main'>
-        <DateInfo dateOffset={dateOffset} />
-        <div className="tomorrow-page__heading-container">
-          <BackwardLink link="/" heading="Today" />
-          <ForwardLink link="/day_after_tomorrow" heading={getWeekday(dateOffset + 1)} />
-        </div>
-        <ForecastWeather dateOffset={dateOffset} />
+      <Header className="tomorrow-page__header" />
+      <main className='tomorrow-page__main'>
+        <DateInfo className="tomorrow-page__date-info" dateOffset={1} />
+        <ul className="tomorrow-page__heading-container">
+          <li className="tomorrow-page__backward-link-container">
+            <BackwardLink className="tomorrow-page__backward-link" link="/" heading="Today" />
+          </li>
+          <li className="tomorrow-page__forward-link-container">
+            <ForwardLink className="tomorrow-page__forward-link" link="/day_after_tomorrow" heading={getWeekday(2)} />
+          </li>
+        </ul>
+        <ForecastWeather className="tomorrow-page__forecast-weather" dateOffset={dateOffset} />
       </main>
-      <Slogan />
+      <Slogan className="tomorrow-page__slogan" />
     </div>
   )
 }

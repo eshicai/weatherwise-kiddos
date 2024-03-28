@@ -28,7 +28,7 @@ export const ForecastWeather = ({ dateOffset }) => {
   const [hasError, setHasError] = useState(false);
 
   const endpoint = `/forecast?lat=${latitude}&lon=${longitude}&dateOffset=${dateOffset}&timezoneOffset=${timezoneOffset}&api_key=${apiKey}`;
-  const forecastUrl = `${baseUrl}${endpoint}`;  
+  const forecastUrl = `${baseUrl}${endpoint}`;
 
   useEffect(() => {
     const fetchForecast = async () => {
@@ -119,7 +119,7 @@ export const ForecastWeather = ({ dateOffset }) => {
         </li>
       </ul>
 
-      {accessories &&
+      {accessories.accessories &&
         (<div className='forecast__accessories'>
           <h3 className='forecast__accessories-details'>Also Bring: {accessories.accessories}</h3>
         </div>)}
@@ -131,16 +131,16 @@ export const ForecastWeather = ({ dateOffset }) => {
           <h3 className='forecast__essentials-title'>Pack your little one with:</h3>
           <ul className='forecast__essentials-items'>
             <li className='forecast__essentials-item'>
-              <p className='forecast__essentials-jacket'>{essentials.jacket}</p>
-              <img className='forecast__essentials-image' src={`${baseUrl}${essentials.jacket_image}`} alt='jacket for essential' />
-            </li>
-            <li className='forecast__essentials-item'>
-              <p className='forecast__essentials-pants'>{essentials.pants}</p>
-              <img className='forecast__essentials-image' src={`${baseUrl}${essentials.pants_image}`} alt='pants for essential' />
-            </li>
-            <li className='forecast__essentials-item'>
-              <p className='forecast__essentials-footwear'>{essentials.footware}</p>
               <img className='forecast__essentials-image' src={`${baseUrl}${essentials.footware_image}`} alt='footware for essential' />
+              <p className='forecast__essentials-footwear'>{essentials.footware}</p>
+            </li>
+            <li className='forecast__essentials-item'>
+              <img className='forecast__essentials-image' src={`${baseUrl}${essentials.jacket_image}`} alt='jacket for essential' />
+              <p className='forecast__essentials-jacket'>{essentials.jacket}</p>
+            </li>
+            <li className='forecast__essentials-item'>
+              <img className='forecast__essentials-image' src={`${baseUrl}${essentials.pants_image}`} alt='pants for essential' />
+              <p className='forecast__essentials-pants'>{essentials.pants}</p>
             </li>
           </ul>
         </div>)}

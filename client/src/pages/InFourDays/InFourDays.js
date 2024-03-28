@@ -13,16 +13,20 @@ export const InFourDays = () => {
 
   return (
     <div className="in-four-days-page">
-      <Header />
-      <main className='main'>
-        <DateInfo dateOffset={dateOffset} />
+      <Header className="in-four-days-page__header" />
+      <main className='in-four-days-page__main'>
+        <DateInfo className="in-four-days-page__date-info" dateOffset={4} />
         <div className="in-four-days-page__heading-container">
-          <BackwardLink link="/in_three_days" heading={getWeekday(dateOffset - 1)} />
-          <HomeLink link="/" heading="Today" />
+          <div className='in-four-days-page__backward-link-container'>
+            <BackwardLink className="in-four-days-page__backward-link" link="/in_three_days" heading={getWeekday(3)} />
+          </div>
+          <div>
+            <HomeLink className="in-four-days-page__home-link" link="/" heading="Today" />
+          </div>
         </div>
-        <ForecastWeather dateOffset={dateOffset} />
+        <ForecastWeather className="in-four-days-page__forecast-weather" dateOffset={dateOffset} />
       </main>
-      <Slogan />
+      <Slogan className="in-four-days-page__slogan" />
     </div>
   )
 }
